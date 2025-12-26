@@ -31,19 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.appendChild(lbImg);
     document.body.appendChild(lightbox);
 
-    document.querySelectorAll('.certificate-card a').forEach(a => {
-        const img = a.querySelector('img');
-        img.style.cursor = 'pointer';
+   document.querySelectorAll('.certificate-card-link').forEach(link => {
+    const img = link.querySelector('img');
 
-        img.addEventListener('click', e => {
-            e.preventDefault();
-            lbImg.src = img.src;
-            lightbox.style.display = 'flex';
-        });
+    img.style.cursor = 'pointer';
+
+    link.addEventListener('click', e => {
+        e.preventDefault(); // ❌ chặn mở tab mới
+        lbImg.src = img.src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     });
+});
+
 
     lightbox.addEventListener('click', () => {
         lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // mở lại scroll
     });
 
     lbImg.addEventListener('click', e => {
@@ -58,27 +62,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.close-btn');
 
     document.querySelectorAll('.blog-card').forEach(card => {
-    card.addEventListener('click', e => {
-        e.preventDefault(); // 🔥 chặn href #
-         e.stopPropagation();
+        card.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
 
-        modal.style.display = 'flex';
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // khóa scroll trang ngoài
 
-        document.getElementById('fm-title').textContent   = card.dataset.title;
-        document.getElementById('fm-core').textContent    = card.dataset.core;
-        document.getElementById('fm-simple').textContent  = card.dataset.simple;
-        document.getElementById('fm-example').textContent = card.dataset.example;
-        document.getElementById('fm-summary').textContent = card.dataset.summary;
+            document.getElementById('fm-title').textContent   = card.dataset.title;
+            document.getElementById('fm-core').textContent    = card.dataset.core;
+            document.getElementById('fm-simple').textContent  = card.dataset.simple;
+            document.getElementById('fm-example').textContent = card.dataset.example;
+            document.getElementById('fm-summary').textContent = card.dataset.summary;
+        });
     });
-});
-
 
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // mở lại scroll trang ngoài
     });
 
     modal.addEventListener('click', e => {
-        if (e.target === modal) modal.style.display = 'none';
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // mở lại scroll trang ngoài
+        }
     });
 
 });

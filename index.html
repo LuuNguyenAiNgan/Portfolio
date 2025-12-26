@@ -66,72 +66,66 @@ const developer = {
     <div class="container">
         <h2 class="section-title">SKILLS</h2>
 
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fab fa-js"></i>
-                <h3>JavaScript</h3>
-                <p>Building complex business logic and handling smooth user interactions.</p>
+        <!-- Khung cuộn -->
+        <div class="skills-grid-wrapper">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Building complex business logic and handling smooth user interactions.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react"></i>
+                    <h3>ReactJS</h3>
+                    <p>Designing modern user interfaces and optimizing rendering performance.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-node-js"></i>
+                    <h3>NodeJS</h3>
+                    <p>Developing scalable backend systems and handling real-time processing.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fa-brands fa-flutter"></i>
+                    <h3>Flutter</h3>
+                    <p>Building high-performance cross-platform mobile applications with smooth UI.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                    <p>Version control, team collaboration, and efficient project deployment.</p>
+                </div>
             </div>
-
-            <div class="skill-card">
-                <i class="fab fa-react"></i>
-                <h3>ReactJS</h3>
-                <p>Designing modern user interfaces and optimizing rendering performance.</p>
-            </div>
-
-            <div class="skill-card">
-                <i class="fab fa-node-js"></i>
-                <h3>NodeJS</h3>
-                <p>Developing scalable backend systems and handling real-time processing.</p>
-            </div>
-
-            <div class="skill-card">
-                <i class="fa-brands fa-flutter"></i>
-                <h3>Flutter</h3>
-                 <p>Building high-performance cross-platform mobile applications with smooth UI.</p>
-            </div>
-
-            <div class="skill-card">
-                <i class="fab fa-git-alt"></i>
-                <h3>Git</h3>
-                <p>Version control, team collaboration, and efficient project deployment.</p>
-
-
-
         </div>
     </div>
 </section>
 
+
 <!-- ================= PROJECTS ================= -->
  <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <!-- Khung cuộn -->
+        <div class="projects-wrapper-scroll">
             <div class="projects-wrapper">
                 
                 <div class="project-row">
                     <div class="project-info">
-                        <span class="project-tag"> Major Project</span>
+                        <span class="project-tag">Major Project</span>
                         <h3>TotalEnglish App</h3>
-                        <p>Totalenglish: Developed an English learning Android app with personalized learning paths,
-                             listening exercises, interactive tasks, and flashcard games for grades 1–5.</p>
+                        <p>Totalenglish: Developed an English learning Android app with personalized learning paths, listening exercises, interactive tasks, and flashcard games for grades 1–5.</p>
                         <ul class="tags">
                             <li>Flutter</li>
                             <li>Firebase</li>
                         </ul>
                         <a href="https://github.com/NguyenHin/TotalEnglish/tree/develop/lib"
-                            class="link-arrow"
-                            target="_blank"
-                            rel="noopener noreferrer">
+                            class="link-arrow" target="_blank" rel="noopener noreferrer">
                                 Link git <i class="fa-solid fa-arrow-right"></i>
                         </a>
-
                     </div>
                     <div class="project-image-placeholder">
-                        <img src="img/totalenglish.png"
-                            alt="TotalEnglish App"
-                            class="project-image">
+                        <img src="img/totalenglish.png" alt="TotalEnglish App" class="project-image">
                     </div>
-
                 </div>
 
                 <div class="project-row reverse">
@@ -145,138 +139,144 @@ const developer = {
                             <li>HTML</li>
                         </ul>
                         <a href="https://github.com/ThienY04/NOVAShop.git"
-                            class="link-arrow"
-                            target="_blank"
-                            rel="noopener noreferrer">
+                            class="link-arrow" target="_blank" rel="noopener noreferrer">
                                 Link git <i class="fa-solid fa-arrow-right"></i>
                         </a>
-
                     </div>
                     <div class="project-image-placeholder">
-                    <img src="img/NovaShop.png"
-                        alt="NOVAShop Project"
-                        class="project-image">
-                </div>
-
+                        <img src="img/NovaShop.png" alt="NOVAShop Project" class="project-image">
+                    </div>
                 </div>
 
             </div>
         </div>
-    </section>
 
-
-<!-- ================= BLOG ================= -->
-
-   <section id="blog" class="section bg-dark">
-    <div class="container">
-        <h2 class="section-title">Blog & Articles</h2>
-
-        <div class="blog-grid">
-
-            <div class="blog-grid">
-
-   <div class="blog-grid">
-
-    <div class="blog-card flutter"
-        data-title="Optimizing Performance in Flutter Apps"
-        data-core="Using 'const' constructors and lazy loading logic to minimize unnecessary UI rebuilds."
-        data-simple="Imagine not repainting an entire wall just to cover a small scratch. You only touch up the specific spot needed."
-        data-example="In TotalEnglish, long vocabulary lists scroll smoothly because items are only instantiated when they actually appear on screen."
-        data-summary="Optimization = User Experience. A smooth app keeps users engaged longer.">
-        
-        <i class="fa-brands fa-flutter"></i>
-        <h3>Flutter Performance Tips</h3>
-        <p>
-            Experience in list optimization and memory management within the TotalEnglish project.
-        </p>
-        <a href="#" class="link-arrow">
-            View Summary
-        </a>
-    </div>
-
-    <div class="blog-card js"
-        data-title="Handling Async Operations in JavaScript"
-        data-core="Using Async/Await to handle server data fetching without blocking the main UI thread."
-        data-simple="It's like ordering at a restaurant: while waiting for the chef (Server), you can still chat with friends (interact with the UI) instead of sitting frozen."
-        data-example="In NOVAShop, product images and prices load in the background while the user continues to browse the homepage smoothly."
-        data-summary="JavaScript isn't just effects; it's the art of managing data flow efficiently.">
-        
-        <i class="fab fa-js"></i>
-        <h3>Logic & API Handling with JS</h3>
-        <p>
-            How I handle asynchronous data to ensure the website always responds instantly.
-        </p>
-        <a href="#" class="link-arrow">
-            View Summary
-        </a>
-    </div>
-
-    <div class="blog-card general"
-        data-title="Programming Mindset & Problem Solving"
-        data-core="Programming is not about typing fast, but about training your logical thinking to solve problems."
-        data-simple="Coding is like learning an instrument. Reading guides isn't enough; you have to practice and 'hit wrong notes' daily."
-        data-example="Reality: You might spend 2 hours finding the root cause of a bug, but only 1 minute actually fixing it."
-        data-summary="Persistence + Google Skills > Talent. Don't fear the bugs!">
-        
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>My Journey: Student to Developer</h3>
-        <p>
-            Key lessons and the right mindset I've developed while working on real-world projects.
-        </p>
-        <a href="#" class="link-arrow">
-            View Summary
-        </a>
-    </div>
-
-</div>
-
-</div>
-
-        </div>
     </div>
 </section>
 
 
-     <!-- ================= CERTIFICATES ================= -->
+<!-- ================= BLOG ================= -->
+<section id="blog" class="section bg-dark">
+    <div class="container">
+        <h2 class="section-title">Blog & Articles</h2>
+
+        <div class="blog-wrapper-scroll">
+            <div class="blog-grid">
+
+                <div class="blog-card flutter"
+                    data-title="Optimizing Performance in Flutter Apps"
+                    data-core="Using 'const' constructors and lazy loading logic to minimize unnecessary UI rebuilds."
+                    data-simple="Imagine not repainting an entire wall just to cover a small scratch. You only touch up the specific spot needed."
+                    data-example="In TotalEnglish, long vocabulary lists scroll smoothly because items are only instantiated when they actually appear on screen."
+                    data-summary="Optimization = User Experience. A smooth app keeps users engaged longer.">
+                    
+                    <i class="fa-brands fa-flutter"></i>
+                    <h3>Flutter Performance Tips</h3>
+                    <p>Experience in list optimization and memory management within the TotalEnglish project.</p>
+                    <a href="#" class="link-arrow">View Summary</a>
+                </div>
+
+                <div class="blog-card js"
+                    data-title="Handling Async Operations in JavaScript"
+                    data-core="Using Async/Await to handle server data fetching without blocking the main UI thread."
+                    data-simple="It's like ordering at a restaurant: while waiting for the chef (Server), you can still chat with friends (interact with the UI) instead of sitting frozen."
+                    data-example="In NOVAShop, product images and prices load in the background while the user continues to browse the homepage smoothly."
+                    data-summary="JavaScript isn't just effects; it's the art of managing data flow efficiently.">
+                    
+                    <i class="fab fa-js"></i>
+                    <h3>Logic & API Handling with JS</h3>
+                    <p>How I handle asynchronous data to ensure the website always responds instantly.</p>
+                    <a href="#" class="link-arrow">View Summary</a>
+                </div>
+
+                <div class="blog-card general"
+                    data-title="Programming Mindset & Problem Solving"
+                    data-core="Programming is not about typing fast, but about training your logical thinking to solve problems."
+                    data-simple="Coding is like learning an instrument. Reading guides isn't enough; you have to practice and 'hit wrong notes' daily."
+                    data-example="Reality: You might spend 2 hours finding the root cause of a bug, but only 1 minute actually fixing it."
+                    data-summary="Persistence + Google Skills > Talent. Don't fear the bugs!">
+                    
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h3>My Journey: Student to Developer</h3>
+                    <p>Key lessons và mindset I've developed while working on real-world projects.</p>
+                    <a href="#" class="link-arrow">View Summary</a>
+                </div>
+                <div class="blog-card git"
+                    data-title="Efficient Version Control with Git"
+                    data-core="Using Git commands like branching, merging, and rebasing to manage code changes without disrupting the workflow."
+                    data-simple="Git is like a time machine for your code: you can experiment, roll back changes, and fix mistakes without breaking the entire project."
+                    data-example="In the TotalEnglish project, Git allows the team to work on multiple features simultaneously, resolve conflicts quickly, and maintain stable releases."
+                    data-summary="Git is not just about storing code; it's about controlling and collaborating on code evolution.">
+                    
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Code Management & Team Collaboration with Git</h3>
+                    <p>How I use Git to keep projects stable, scalable, and team-friendly.</p>
+                    <a href="#" class="link-arrow">View Summary</a>
+                </div>
+
+
+            </div> <!-- end blog-grid -->
+        </div> <!-- end blog-wrapper-scroll -->
+
+    </div> <!-- end container -->
+</section>
+
+
+<!-- ================= CERTIFICATES ================= -->
 <section id="certificates" class="section">
     <div class="container">
         <h2 class="section-title">CERTIFICATES</h2>
 
-        <div class="certificate-card">
-        <a href="img/AV.png" target="_blank">
-            <img src="img/AV.png" alt="JavaScript Certificate">
-        </a>
-        <h3>English (B1)</h3>
-    </div>
+        <!-- Wrapper scroll -->
+        <div class="certificate-grid-wrapper"> 
+            <div class="certificate-wrapper">
 
-            <div class="certificate-card">
-                 <a href="img/KN.png" target="_blank">
-            <img src="img/KN.png" alt="JavaScript Certificate">
-        </a>
-                <h3>Communication Skills</h3>
-            </div>
+                <!-- Certificate 1 -->
+                <a href="img/AV.png" target="_blank" class="certificate-card-link">
+                    <div class="certificate-card">
+                        <img src="img/AV.png" alt="English Certificate">
+                        <h3>English (B1)</h3>
+                    </div>
+                </a>
 
-           <div class="certificate-card">
-                 <a href="img/NetworkingBasics.png" target="_blank">
-            <img src="img/NetworkingBasics.png" alt="JavaScript Certificate">
-        </a>
-                <h3>NetworkingBasics</h3>
-            </div>
-            <div class="certificate-card">
-                 <a href="img/JavaScriptEssentials1.png" target="_blank">
-            <img src="img/JavaScriptEssentials1.png" alt="JavaScript Certificate">
-        </a>
-                <h3>JavaScriptEssentials1</h3>
-            </div>
-            <div class="certificate-card">
-                 <a href="img/JavaScriptEssentials2.png" target="_blank">
-            <img src="img/JavaScriptEssentials2.png" alt="JavaScript Certificate">
-        </a>
-                <h3>JavaScriptEssentials2</h3>
+                <!-- Certificate 2 -->
+                <a href="img/KN.png" target="_blank" class="certificate-card-link">
+                    <div class="certificate-card">
+                        <img src="img/KN.png" alt="Communication Skills">
+                        <h3>Communication Skills</h3>
+                    </div>
+                </a>
+
+                <!-- Certificate 3 -->
+                <a href="img/NetworkingBasics.png" target="_blank" class="certificate-card-link">
+                    <div class="certificate-card">
+                        <img src="img/NetworkingBasics.png" alt="Networking Basics">
+                        <h3>Networking Basics</h3>
+                    </div>
+                </a>
+
+                <!-- Certificate 4 -->
+                <a href="img/JavaScriptEssentials1.png" target="_blank" class="certificate-card-link">
+                    <div class="certificate-card">
+                        <img src="img/JavaScriptEssentials1.png" alt="JavaScript Essentials 1">
+                        <h3>JavaScript Essentials 1</h3>
+                    </div>
+                </a>
+
+                <!-- Certificate 5 -->
+                <a href="img/JavaScriptEssentials2.png" target="_blank" class="certificate-card-link">
+                    <div class="certificate-card">
+                        <img src="img/JavaScriptEssentials2.png" alt="JavaScript Essentials 2">
+                        <h3>JavaScript Essentials 2</h3>
+                    </div>
+                </a>
+
             </div>
         </div>
     </div>
 </section>
+
+
 
    <!-- ================= CONTACT INFO =================-->
 <section id="contact" class="section contact-section">
@@ -310,30 +310,35 @@ const developer = {
 </footer>
 <div id="feynman-modal">
     <div class="feynman-box">
+        <!-- Nút đóng luôn ở trên -->
         <span class="close-btn">&times;</span>
 
-        <h2 id="fm-title"></h2>
+        <!-- Nội dung scroll riêng -->
+        <div class="feynman-content">
+            <h2 id="fm-title"></h2>
 
-        <div class="fm-block">
-            <h4>Core Idea</h4>
-            <p id="fm-core"></p>
-        </div>
+            <div class="fm-block">
+                <h4>Core Idea</h4>
+                <p id="fm-core"></p>
+            </div>
 
-        <div class="fm-block">
-            <h4>Explained for Beginners</h4>
-            <p id="fm-simple"></p>
-        </div>
+            <div class="fm-block">
+                <h4>Explained for Beginners</h4>
+                <p id="fm-simple"></p>
+            </div>
 
-        <div class="fm-block">
-            <h4>Example</h4>
-            <p id="fm-example"></p>
-        </div>
+            <div class="fm-block">
+                <h4>Example</h4>
+                <p id="fm-example"></p>
+            </div>
 
-        <div class="fm-block highlight">
-            <strong id="fm-summary"></strong>
+            <div class="fm-block highlight">
+                <strong id="fm-summary"></strong>
+            </div>
         </div>
     </div>
 </div>
+
 <script src="script.js"></script>
 </body>
 

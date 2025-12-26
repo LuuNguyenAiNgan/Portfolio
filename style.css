@@ -362,6 +362,29 @@ pre {
     position: relative;
     z-index: 1;
 }
+.skills-grid-wrapper {
+    max-height: 500px;   /* Chiều cao cố định của khung */
+    overflow-y: auto;    /* Cho phép cuộn dọc */
+    padding-right: 10px; /* Tránh nội dung bị che bởi scrollbar */
+    scrollbar-width: thin;          /* Firefox */
+    scrollbar-color: var(--accent-color) rgba(255,255,255,0.1); /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.skills-grid-wrapper::-webkit-scrollbar {
+    width: 2px;
+}
+
+.skills-grid-wrapper::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.skills-grid-wrapper::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
 
 /* CARD GỐC */
 .skill-card {
@@ -484,6 +507,46 @@ pre {
     flex-direction: column;
     gap: 80px;
 }
+.projects-wrapper-scroll {
+    max-height: 500px;  /* Chiều cao cố định */
+    overflow-y: auto;   /* Cuộn dọc */
+    padding-right: 10px; /* Tránh nội dung bị che bởi scrollbar */
+    scrollbar-width: thin;          /* Firefox */
+    scrollbar-color: var(--accent-color) rgba(255,255,255,0.1); /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.projects-wrapper-scroll::-webkit-scrollbar {
+    width: 2px;
+}
+
+.projects-wrapper-scroll::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.projects-wrapper-scroll::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* Nếu muốn cuộn ngang thay vì dọc */
+.projects-wrapper-scroll-horizontal {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    max-width: 100%;
+    padding-bottom: 10px;
+}
+
+.projects-wrapper-scroll-horizontal::-webkit-scrollbar {
+    height: 2px;
+}
+.projects-wrapper-scroll-horizontal::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
 
 .project-row {
     display: grid;
@@ -591,6 +654,29 @@ pre {
     position: relative;
     z-index: 1;
 }
+.blog-wrapper-scroll {
+    max-height: 500px;     /* Chiều cao cố định */
+    overflow-y: auto;      /* Cuộn dọc */
+    padding-right: 5px;   /* Tránh bị che bởi scrollbar */
+    scrollbar-width: thin;          /* Firefox */
+    scrollbar-color: var(--accent-color) rgba(255,255,255,0.1); /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.blog-wrapper-scroll::-webkit-scrollbar {
+    width: 2px;
+}
+
+.blog-wrapper-scroll::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.blog-wrapper-scroll::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
 
 /* BLOG CARD */
 .blog-card {
@@ -599,7 +685,7 @@ pre {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
-    padding: 35px 30px;
+    padding: 20px 30px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -609,6 +695,7 @@ pre {
     flex-direction: column;    /* Xếp nội dung từ trên xuống dưới */
     align-items: center;
 }
+
 
 /* Gradient mờ khi hover */
 .blog-card::after {
@@ -693,36 +780,35 @@ pre {
     opacity: 0.85;
 }
 
-/* ================= FEYNMAN MODAL - PRO VERSION ================= */
+/* ================= FEYNMAN MODAL ================= */
 #feynman-modal {
     position: fixed;
     inset: 0;
-    background: rgba(4, 11, 28, 0.9); /* Nền tối hơn để tập trung */
-    backdrop-filter: blur(8px);       /* Làm mờ nền web phía sau */
+    background: rgba(4, 11, 28, 0.9);
+    backdrop-filter: blur(8px);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    padding: 20px; /* Tránh sát mép trên mobile */
+    padding: 20px;
 }
 
+/* Container modal */
 .feynman-box {
     position: relative;
-    /* Hiệu ứng nền Gradient chéo nhẹ tạo độ sâu */
     background: linear-gradient(145deg, rgba(20, 35, 65, 0.95), rgba(4, 11, 28, 0.98));
-    border: 1px solid rgba(0, 242, 255, 0.15); /* Viền neon mỏng */
-    box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.6), 
-        inset 0 0 30px rgba(0, 242, 255, 0.05); /* Glow nhẹ bên trong */
+    border: 1px solid rgba(0, 242, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 242, 255, 0.05);
     border-radius: 24px;
-    padding: 50px 40px;
+    padding: 30px 20px;
+    width: 90%;
     max-width: 700px;
-    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
     animation: modalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden; /* Để chứa các hiệu ứng loang màu nếu có */
 }
 
-/* Trang trí một chút ánh sáng ở góc trên để tạo cảm giác cao cấp */
+/* Gradient header góc trên */
 .feynman-box::before {
     content: '';
     position: absolute;
@@ -732,14 +818,13 @@ pre {
     opacity: 0.7;
 }
 
-/* TIÊU ĐỀ MODAL */
+/* Tiêu đề modal */
 .feynman-box h2 {
     margin-bottom: 30px;
     font-size: 2rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    /* Gradient text */
     background: linear-gradient(90deg, #fff, var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -747,22 +832,21 @@ pre {
     padding-bottom: 20px;
 }
 
-/* CÁC KHỐI NỘI DUNG (CORE, SIMPLE, EXAMPLE) */
+/* Nội dung từng khối */
 .fm-block {
     margin-bottom: 20px;
     padding: 20px 25px;
-    background: rgba(255, 255, 255, 0.02); /* Nền siêu nhẹ phân biệt từng khối */
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 12px;
-    border-left: 3px solid rgba(255,255,255,0.1); /* Thanh chỉ dẫn bên trái */
+    border-left: 3px solid rgba(255,255,255,0.1);
     transition: 0.3s;
 }
 
 .fm-block:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-left-color: var(--accent-color); /* Hover thì thanh bên trái sáng lên */
+    border-left-color: var(--accent-color);
 }
 
-/* TIÊU ĐỀ CON (H4) */
 .fm-block h4 {
     color: var(--accent-cyan);
     margin-bottom: 8px;
@@ -774,15 +858,14 @@ pre {
     gap: 10px;
 }
 
-/* NỘI DUNG TEXT */
 .fm-block p {
-    color: var(--text-secondary); /* Màu sáng hơn text-dim một chút cho dễ đọc */
+    color: var(--text-secondary);
     line-height: 1.6;
     font-size: 1rem;
     margin: 0;
 }
 
-/* KHỐI HIGHLIGHT (SUMMARY) - Làm nổi bật hẳn lên */
+/* Khối highlight */
 .fm-block.highlight {
     margin-top: 30px;
     background: linear-gradient(90deg, rgba(0, 242, 255, 0.05), transparent);
@@ -798,8 +881,8 @@ pre {
     letter-spacing: 0.5px;
 }
 
-/* NÚT ĐÓNG (CLOSE BTN) */
-.close-btn {
+/* Nút đóng */
+.feynman-box .close-btn {
     position: absolute;
     top: 20px;
     right: 25px;
@@ -813,83 +896,166 @@ pre {
     background: rgba(255,255,255,0.05);
     border-radius: 50%;
     cursor: pointer;
-    transition: 0.3s ease;
     z-index: 10;
+    transition: 0.3s ease;
 }
 
-.close-btn:hover {
-    background: rgba(255, 50, 50, 0.2); /* Màu đỏ nhẹ báo hiệu đóng */
+.feynman-box .close-btn:hover {
+    background: rgba(255, 50, 50, 0.2);
     color: #ff5555;
     transform: rotate(90deg);
 }
 
-/* ANIMATION XUẤT HIỆN */
-@keyframes modalSlideUp {
-    from { 
-        transform: translateY(50px) scale(0.95); 
-        opacity: 0; 
-    }
-    to { 
-        transform: translateY(0) scale(1); 
-        opacity: 1; 
-    }
+/* Container scroll cho nội dung */
+.feynman-content {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-top: 20px;
 }
 
-/* RESPONSIVE CHO MODAL */
+/* Scrollbar modal */
+.feynman-content::-webkit-scrollbar {
+    width: 2px;
+}
+
+.feynman-content::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.feynman-content::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* Animation xuất hiện */
+@keyframes modalSlideUp {
+    from { transform: translateY(50px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Responsive mobile */
 @media (max-width: 600px) {
     .feynman-box {
-        padding: 30px 20px;
+        padding: 20px 15px;
+        width: 95%;
+        max-height: 90vh;
     }
+
     .feynman-box h2 {
         font-size: 1.5rem;
     }
+
+    .feynman-content {
+        max-height: 85vh;
+    }
 }
 
-/* ================= CERTIFICATES  ================= */
-.certificate-grid {
+
+
+/* ================= CERTIFICATES ================= */
+
+/* Khung cuộn chính */
+.certificate-grid-wrapper {
+    max-height: 500px;        /* Chiều cao cố định của khung */
+    overflow-y: auto;         /* Bật cuộn dọc */
+    padding: 20px;            /* Khoảng cách bên trong khung */
+    border: 1px solid rgba(255,255,255,0.1); /* Viền khung */
+    border-radius: 24px;      /* Bo góc khung */
+    background: rgba(255,255,255,0.03); /* Nền khung nhẹ */
+    backdrop-filter: blur(10px);
+    scrollbar-width: thin;    /* Firefox */
+    scrollbar-color: var(--accent-color) rgba(255,255,255,0.1);
+}
+
+/* Chrome, Edge, Safari */
+.certificate-grid-wrapper::-webkit-scrollbar {
+    width: 2px;
+}
+
+.certificate-grid-wrapper::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.certificate-grid-wrapper::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* Grid layout cho card bên trong khung */
+.certificate-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
+/* Card chứng chỉ */
 .certificate-card {
-    background: var(--bg-glass);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,.05);
-    border-radius: 20px;
-    padding: 25px;
-    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
 .certificate-card:hover {
     transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
     border-color: var(--accent-color);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5),
+                0 0 20px rgba(0,242,255,0.1);
 }
 
+/* Ảnh chứng chỉ */
 .certificate-card img {
-    width: 100%;
-    /* height: 200px;  <-- Dòng cũ */
-    height: 350px;  /* 👉 SỬA Ở ĐÂY: Tăng chiều cao lên để ảnh có không gian phóng to */
-    object-fit: contain; /* Vẫn giữ cái này để ảnh hiển thị đầy đủ không bị tràn */
+    width: auto;
+    max-width: 80%;
+    height: 120px;
+    object-fit: contain;
     border-radius: 12px;
-    margin-bottom: 20px;
-    background: #1a233a; /* Màu nền dự phòng */
-    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
 }
 
+.certificate-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Tên chứng chỉ */
 .certificate-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+    font-size: 1rem;
     color: var(--text-main);
+    margin: 0;
 }
 
-.certificate-card p {
-    font-family: var(--font-code);
-    font-size: 0.85rem;
-    color: var(--text-dim);
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .certificate-grid-wrapper {
+        max-height: none;  /* Mobile: scroll tự do */
+        padding: 15px;
+    }
+
+    .certificate-wrapper {
+        grid-template-columns: 1fr; /* 1 cột */
+        gap: 15px;
+    }
+    .certificate-card-link {
+    text-decoration: none;
+    display: block;
 }
 
+
+    .certificate-card img {
+        height: 100px;
+        max-width: 90%;
+    }
+}
 
 /* ================= CONTACT ================= */
 /* SECTION THÔNG TIN LIÊN HỆ */
@@ -921,7 +1087,6 @@ pre {
     color: var(--text-main);
 }
 
-
 /* ================= FOOTER ================= */
 .footer {
     text-align: center;
@@ -948,130 +1113,7 @@ pre {
     font-family: var(--font-code);
     font-size: 0.9rem;
 }
-/* ================= BLOG PRO STYLE ================= */
 
-/* Cấu trúc Card Flexbox như đã bàn trước đó */
-.blog-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    text-align: left; /* Canh trái nhìn chuyên nghiệp hơn canh giữa cho blog */
-    transition: 0.4s ease;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.blog-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* --- HEADER CỦA CARD (Icon + Tags) --- */
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
-/* Icon Box: Tạo hộp chứa icon nhìn xịn hơn */
-.icon-box {
-    width: 50px;
-    height: 50px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Tags Style */
-.tags {
-    display: flex;
-    gap: 8px;
-}
-
-.tag {
-    font-size: 0.75rem;
-    font-family: var(--font-code);
-    padding: 4px 10px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    color: var(--text-dim);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-/* --- TEXT CONTENT --- */
-.blog-card h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--text-main);
-}
-
-.excerpt {
-    font-size: 0.95rem;
-    color: var(--text-dim);
-    line-height: 1.6;
-    margin-bottom: 20px;
-    flex-grow: 1; /* Đẩy nội dung bên dưới xuống đáy */
-}
-
-/* --- MINI HIGHLIGHT (Cái này giúp dễ hình dung Core Idea) --- */
-.mini-highlight {
-    background: rgba(0, 242, 255, 0.05);
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 3px solid var(--accent-color);
-    margin-bottom: 20px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mini-highlight i {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-}
-
-/* --- THEME COLORS (Phân màu cho từng loại card) --- */
-/* Flutter: Blue */
-.flutter-theme:hover { border-color: #40C4FF; }
-.flutter-theme .icon-box i { color: #40C4FF; }
-.flutter-theme:hover .icon-box { background: rgba(64, 196, 255, 0.1); border-color: #40C4FF; }
-
-/* JS: Yellow */
-.js-theme:hover { border-color: #F7DF1E; }
-.js-theme .icon-box i { color: #F7DF1E; }
-.js-theme:hover .icon-box { background: rgba(247, 223, 30, 0.1); border-color: #F7DF1E; }
-.js-theme .mini-highlight { border-left-color: #F7DF1E; background: rgba(247, 223, 30, 0.05); }
-.js-theme .mini-highlight i { color: #F7DF1E; }
-
-/* General: Purple */
-.general-theme:hover { border-color: #bd93f9; }
-.general-theme .icon-box i { color: #bd93f9; }
-.general-theme:hover .icon-box { background: rgba(189, 147, 249, 0.1); border-color: #bd93f9; }
-.general-theme .mini-highlight { border-left-color: #bd93f9; background: rgba(189, 147, 249, 0.05); }
-.general-theme .mini-highlight i { color: #bd93f9; }
-
-/* --- LINK ARROW --- */
-.link-arrow {
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: auto;
-}
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 968px) {
