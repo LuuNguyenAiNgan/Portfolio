@@ -1,0 +1,1086 @@
+/* ================= VARIABLES ================= */
+:root {
+    --bg-main: #040b1c;
+    --bg-secondary: #0d1835;
+    --bg-glass: rgba(13, 24, 53, 0.7);
+    --text-main: #e6f1ff;
+    --text-dim: #8a9ab8;
+     --text-secondary: #b6c2e2;
+    --accent-color: #00f2ff;
+    --accent-glow: rgba(0, 242, 255, 0.4);
+    --accent-cyan: #06b6d4;
+
+    --font-main: 'Outfit', sans-serif;
+    --font-code: 'Fira Code', monospace;
+    --section-spacing: 140px;
+    --radius-lg: 20px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--bg-main);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(0,242,255,.05), transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(41,98,255,.08), transparent 50%);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(4,11,28,.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(to right, var(--text-main), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: .85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    transition: .3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+.nav-links a:hover::after { width: 100%; }
+
+.btn-nav {
+    border: 2px solid var(--accent-color);
+    padding: 10px 25px;
+    border-radius: 50px;
+    color: var(--accent-color) !important;
+    font-weight: 700;
+}
+.btn-nav:hover {
+    background: var(--accent-color);
+    color: var(--bg-main) !important;
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* ================= HERO – CREATIVE CENTERED ================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 120px;
+    background:
+        radial-gradient(circle at top, #0a2540 0%, #020617 60%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* blurred shapes */
+.hero::before,
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .35;
+    z-index: 0;
+}
+
+.hero::before {
+    background: #00f2ff;
+    top: -120px;
+    left: -120px;
+}
+
+.hero::after {
+    background: #2962ff;
+    bottom: -120px;
+    right: -120px;
+}
+
+/* CONTAINER */
+.hero-container {
+    display: grid;
+    /* Chỉnh lại tỷ lệ cho đều hơn, ví dụ 1:1 */
+    grid-template-columns: 1fr 1fr; 
+    align-items: center; 
+    gap: 40px;           
+    position: relative;
+    z-index: 2;
+}
+.hero-content {
+    text-align: left;
+}
+
+
+/* SUBTITLE */
+.subtitle {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 14px;          /* 👈 tạo khoảng cách với h1 */
+
+    background: rgba(0,242,255,.12);
+    padding: 8px 20px;            /* 👈 gọn hơn */
+    border-radius: 999px;
+
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    font-family: var(--font-code);
+}
+
+/* TITLE */
+.hero-content h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 6.5vw, 4.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+/* PORTFOLIO (NHỎ HƠN TÊN) */
+.hero-content .accent-text {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.55em;            /* 👈 nhỏ hơn rõ ràng */
+    letter-spacing: 4px;
+
+    background: linear-gradient(90deg, #00f2ff, #2962ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* DESCRIPTION */
+.hero .description {
+    max-width: 620px;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    margin: 20px auto 40px;
+}
+
+/* BUTTON */
+.btn-primary {
+    background: linear-gradient(90deg, #00f2ff, #2962ff);
+    color: #020617;
+    padding: 18px 60px;
+    border-radius: 999px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 20px 50px rgba(0,242,255,.35);
+    transition: .4s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px rgba(0,242,255,.5);
+}
+
+/* CODE BACKGROUND */
+.hero-visual {
+    position: relative;     
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+    z-index: 2;
+}
+
+
+.code-block-wrapper {
+    position: absolute;   
+    bottom: -50px;        
+    right: -30px;         
+    z-index: -1;         
+    
+    /* Các thuộc tính cũ giữ nguyên */
+    max-width: 520px;
+    opacity: 0.15;
+    filter: blur(1px);
+    transform: rotate(-2deg); 
+    pointer-events: none;
+    
+    /* Style nền cũ giữ nguyên */
+    background: linear-gradient(135deg, rgba(20,30,60,.6), rgba(10,20,40,.8));
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: clamp(3rem, 10vw, 4.5rem);
+    }
+
+    .hero-content .accent-text {
+        font-size: 4.5rem;
+    }
+}
+/* ================= HERO AVATAR ================= */
+
+.hero-avatar {
+    width: 400px;   /* 👈 TO HƠN */
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 4px solid rgba(255,255,255,.15);
+    box-shadow:
+        0 0 0 10px rgba(0,242,255,.18),
+        0 35px 90px rgba(0,0,0,.7);
+}
+
+
+.hero-avatar:hover {
+    transform: scale(1.06);
+    box-shadow:
+        0 0 0 10px rgba(0,242,255,.25),
+        0 40px 90px rgba(0,0,0,.8);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-avatar {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+
+/* ================= CODE BLOCK ================= */
+.code-block-wrapper {
+    background: linear-gradient(135deg, rgba(20,30,60,.6), rgba(10,20,40,.8));
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+pre {
+    font-family: var(--font-code);
+    color: #b0c4de;
+    font-size: .95rem;
+}
+
+/* ================= COMMON ================= */
+.section {
+    padding: var(--section-spacing) 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-title::after {
+    content: '';
+    height: 2px;
+    flex: 1;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+    opacity: .3;
+}
+
+/* ================= SKILLS – MODERN GRID STYLE ================= */
+
+.bg-dark {
+    background: radial-gradient(circle at 50% 50%, #1a233a 0%, #040b1c 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng nền trang trí mờ ảo phía sau */
+.bg-dark::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.skills-grid {
+    display: grid;
+    /* Tự động chia cột, tối thiểu 300px mỗi thẻ */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* CARD GỐC */
+.skill-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Đảm bảo các thẻ cao bằng nhau */
+}
+
+/* Hiệu ứng Gradient mờ khi hover */
+.skill-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0, 242, 255, 0.05) 100%);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* HOVER EFFECT CHO CARD */
+.skill-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 242, 255, 0.3);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(0, 242, 255, 0.1); /* Glow nhẹ */
+}
+
+.skill-card:hover::after {
+    opacity: 1;
+}
+
+/* ICON STYLE */
+.skill-card i {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    background: -webkit-linear-gradient(45deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.3));
+    transition: 0.4s;
+}
+
+/* Icon chuyển động khi hover */
+.skill-card:hover i {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 25px var(--accent-color));
+}
+
+/* TEXT STYLE */
+.skill-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    position: relative;
+    z-index: 2;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* TRANG TRÍ GÓC (Corner Decoration) */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 50px 50px 0;
+    border-color: transparent rgba(0, 242, 255, 0.1) transparent transparent;
+    transition: 0.4s;
+}
+
+.skill-card:hover::before {
+    border-color: transparent var(--accent-color) transparent transparent;
+    opacity: 0.8;
+}
+.skill-card .fa-flutter {
+    transform: scale(1.15);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Về lại 1 cột trên mobile */
+    }
+    
+    .skill-card {
+        align-items: center; /* Căn giữa trên mobile cho đẹp */
+        text-align: center;
+    }
+    
+    /* Ẩn hiệu ứng góc trên mobile nếu muốn gọn */
+    .skill-card::before {
+        display: none;
+    }
+}
+
+/* ================= PROJECTS ================= */
+.projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.project-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+.project-row.reverse { direction: rtl; }
+.project-row.reverse .project-info { direction: ltr; }
+
+.project-tag {
+    color: var(--accent-cyan);
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-info h3 { font-size: 2rem; margin-bottom: 16px; }
+.project-info p { color: var(--text-secondary); margin-bottom: 24px; }
+
+.tags { display: flex; gap: 10px; margin-bottom: 30px; list-style: none; }
+.tags li {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-family: var(--font-code);
+}
+
+.link-arrow {
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: auto;
+}
+.link-arrow:hover { gap: 12px; filter: drop-shadow(0 0 5px var(--accent-color)); }
+
+/* Project Visuals */
+.project-image-placeholder {
+    background: #151b2e;
+    border-radius: var(--radius-lg);
+    height: 350px;
+    border: 1px solid rgba(255,255,255,.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Ảnh project */
+.project-image {
+    width: 85%;          /* 👈 chiếm gần full khung */
+    height: auto;
+    max-height: 90%;     /* 👈 không tràn khung */
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 30px 40px rgba(0,0,0,.5);
+}
+
+
+
+.dummy-ui {
+    width: 220px;
+    height: 85%;
+    background: #0f172a;
+    border-radius: 20px;
+    border: 6px solid #334155;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.app-header { color: white; text-align: center; margin-bottom: 20px; font-weight: bold; font-family: var(--font-main); }
+.bar { height: 10px; background: #334155; border-radius: 5px; margin-bottom: 10px; }
+.w-70 { width: 70%; }
+.box { height: 80px; background: #1e293b; border-radius: 8px; margin-top: 20px; }
+
+.terminal-ui {
+    font-family: var(--font-code);
+    color: #27c93f;
+    font-size: 0.9rem;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ================= BLOG ================= */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* BLOG CARD */
+.blog-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 35px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    display: flex;             /* Biến card thành hộp dẻo */
+    flex-direction: column;    /* Xếp nội dung từ trên xuống dưới */
+    align-items: center;
+}
+
+/* Gradient mờ khi hover */
+.blog-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 0%,
+        rgba(0, 242, 255, 0.06) 100%
+    );
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* Hover effect */
+.blog-card:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 242, 255, 0.3);
+    box-shadow:
+        0 20px 40px -10px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(0, 242, 255, 0.15);
+}
+
+.blog-card:hover::after {
+    opacity: 1;
+}
+
+/* ICON */
+.blog-card i {
+    font-size: 3rem;
+    margin-bottom: 22px;
+    background: -webkit-linear-gradient(45deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.25));
+    transition: 0.4s;
+}
+
+/* Icon animate */
+.blog-card:hover i {
+    transform: scale(1.15) rotate(-6deg);
+    filter: drop-shadow(0 0 25px var(--accent-color));
+}
+
+/* TEXT */
+.blog-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-main);
+    position: relative;
+    z-index: 2;
+}
+
+.blog-card p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Corner decoration giống Skills */
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 50px 50px 0;
+    border-color: transparent rgba(0, 242, 255, 0.1) transparent transparent;
+    transition: 0.4s;
+}
+
+.blog-card:hover::before {
+    border-color: transparent var(--accent-color) transparent transparent;
+    opacity: 0.85;
+}
+
+/* ================= FEYNMAN MODAL - PRO VERSION ================= */
+#feynman-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 11, 28, 0.9); /* Nền tối hơn để tập trung */
+    backdrop-filter: blur(8px);       /* Làm mờ nền web phía sau */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px; /* Tránh sát mép trên mobile */
+}
+
+.feynman-box {
+    position: relative;
+    /* Hiệu ứng nền Gradient chéo nhẹ tạo độ sâu */
+    background: linear-gradient(145deg, rgba(20, 35, 65, 0.95), rgba(4, 11, 28, 0.98));
+    border: 1px solid rgba(0, 242, 255, 0.15); /* Viền neon mỏng */
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.6), 
+        inset 0 0 30px rgba(0, 242, 255, 0.05); /* Glow nhẹ bên trong */
+    border-radius: 24px;
+    padding: 50px 40px;
+    max-width: 700px;
+    width: 100%;
+    animation: modalSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden; /* Để chứa các hiệu ứng loang màu nếu có */
+}
+
+/* Trang trí một chút ánh sáng ở góc trên để tạo cảm giác cao cấp */
+.feynman-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(70deg, transparent, var(--accent-color), transparent);
+    opacity: 0.7;
+}
+
+/* TIÊU ĐỀ MODAL */
+.feynman-box h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Gradient text */
+    background: linear-gradient(90deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+/* CÁC KHỐI NỘI DUNG (CORE, SIMPLE, EXAMPLE) */
+.fm-block {
+    margin-bottom: 20px;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.02); /* Nền siêu nhẹ phân biệt từng khối */
+    border-radius: 12px;
+    border-left: 3px solid rgba(255,255,255,0.1); /* Thanh chỉ dẫn bên trái */
+    transition: 0.3s;
+}
+
+.fm-block:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-left-color: var(--accent-color); /* Hover thì thanh bên trái sáng lên */
+}
+
+/* TIÊU ĐỀ CON (H4) */
+.fm-block h4 {
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-family: var(--font-code);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* NỘI DUNG TEXT */
+.fm-block p {
+    color: var(--text-secondary); /* Màu sáng hơn text-dim một chút cho dễ đọc */
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* KHỐI HIGHLIGHT (SUMMARY) - Làm nổi bật hẳn lên */
+.fm-block.highlight {
+    margin-top: 30px;
+    background: linear-gradient(90deg, rgba(0, 242, 255, 0.05), transparent);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    border-left: 4px solid var(--accent-color);
+    text-align: center;
+}
+
+.fm-block.highlight strong {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* NÚT ĐÓNG (CLOSE BTN) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: rgba(255, 50, 50, 0.2); /* Màu đỏ nhẹ báo hiệu đóng */
+    color: #ff5555;
+    transform: rotate(90deg);
+}
+
+/* ANIMATION XUẤT HIỆN */
+@keyframes modalSlideUp {
+    from { 
+        transform: translateY(50px) scale(0.95); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0) scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* RESPONSIVE CHO MODAL */
+@media (max-width: 600px) {
+    .feynman-box {
+        padding: 30px 20px;
+    }
+    .feynman-box h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ================= CERTIFICATES  ================= */
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.certificate-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 20px;
+    padding: 25px;
+    transition: all 0.4s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.certificate-card img {
+    width: 100%;
+    /* height: 200px;  <-- Dòng cũ */
+    height: 350px;  /* 👉 SỬA Ở ĐÂY: Tăng chiều cao lên để ảnh có không gian phóng to */
+    object-fit: contain; /* Vẫn giữ cái này để ảnh hiển thị đầy đủ không bị tràn */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: #1a233a; /* Màu nền dự phòng */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.certificate-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.certificate-card p {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+
+/* ================= CONTACT ================= */
+/* SECTION THÔNG TIN LIÊN HỆ */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px 20px;
+    /* Bỏ transition và hover */
+}
+
+.contact-card h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+
+/* ================= FOOTER ================= */
+.footer {
+    text-align: center;
+    padding: 100px 0 50px;
+    background: var(--bg-secondary);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.big-email {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 900;
+    text-decoration: none;
+    background: linear-gradient(to right, var(--text-main), var(--text-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin: 20px 0;
+    transition: 0.3s;
+}
+.big-email:hover { opacity: 0.8; letter-spacing: 2px; }
+
+.footer p {
+    color: var(--text-dim);
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+}
+/* ================= BLOG PRO STYLE ================= */
+
+/* Cấu trúc Card Flexbox như đã bàn trước đó */
+.blog-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Canh trái nhìn chuyên nghiệp hơn canh giữa cho blog */
+    transition: 0.4s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* --- HEADER CỦA CARD (Icon + Tags) --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Icon Box: Tạo hộp chứa icon nhìn xịn hơn */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Tags Style */
+.tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-family: var(--font-code);
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-dim);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- TEXT CONTENT --- */
+.blog-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.excerpt {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Đẩy nội dung bên dưới xuống đáy */
+}
+
+/* --- MINI HIGHLIGHT (Cái này giúp dễ hình dung Core Idea) --- */
+.mini-highlight {
+    background: rgba(0, 242, 255, 0.05);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mini-highlight i {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+/* --- THEME COLORS (Phân màu cho từng loại card) --- */
+/* Flutter: Blue */
+.flutter-theme:hover { border-color: #40C4FF; }
+.flutter-theme .icon-box i { color: #40C4FF; }
+.flutter-theme:hover .icon-box { background: rgba(64, 196, 255, 0.1); border-color: #40C4FF; }
+
+/* JS: Yellow */
+.js-theme:hover { border-color: #F7DF1E; }
+.js-theme .icon-box i { color: #F7DF1E; }
+.js-theme:hover .icon-box { background: rgba(247, 223, 30, 0.1); border-color: #F7DF1E; }
+.js-theme .mini-highlight { border-left-color: #F7DF1E; background: rgba(247, 223, 30, 0.05); }
+.js-theme .mini-highlight i { color: #F7DF1E; }
+
+/* General: Purple */
+.general-theme:hover { border-color: #bd93f9; }
+.general-theme .icon-box i { color: #bd93f9; }
+.general-theme:hover .icon-box { background: rgba(189, 147, 249, 0.1); border-color: #bd93f9; }
+.general-theme .mini-highlight { border-left-color: #bd93f9; background: rgba(189, 147, 249, 0.05); }
+.general-theme .mini-highlight i { color: #bd93f9; }
+
+/* --- LINK ARROW --- */
+.link-arrow {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 968px) {
+    .nav-links { display: none; }
+    .hero-container { grid-template-columns: 1fr; text-align: center; }
+    .section-title { justify-content: center; }
+    .section-title::after { display: none; }
+    
+    .project-row { grid-template-columns: 1fr; gap: 30px; }
+    .project-row.reverse { direction: ltr; }
+    .project-image-placeholder { height: 250px; order: -1; }
+}
