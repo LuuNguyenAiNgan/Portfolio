@@ -614,6 +614,50 @@ pre {
     animation: fadeIn 0.3s ease forwards;
     padding: 20px; /* Tạo khoảng cách an toàn với mép màn hình */
 }
+/* 1. Tạo khung để giữ nút nằm dính theo ảnh */
+.avatar-wrapper {
+    position: relative;       /* Làm mốc tọa độ */
+    display: inline-block;    /* Khung ôm sát kích thước ảnh */
+    margin-bottom: 20px;      /* Tạo khoảng cách với phần bên dưới */
+}
+
+/* 2. Chỉnh vị trí nút Tải CV */
+.btn-download-cv {
+    position: absolute;
+    
+    /* VỊ TRÍ: Góc TRÁI - DƯỚI */
+    /* Căn giữa */
+    bottom: 15px;       /* Cách đáy ảnh 15px (bạn có thể chỉnh số này) */
+    left: 30%;          /* Đẩy điểm bắt đầu của nút ra giữa ảnh */
+    transform: translateX(-50%);        /* Sát bên trái ảnh */
+    
+    /* Đẩy nút nhô ra ngoài ảnh một chút cho đẹp (tùy chọn) */
+    transform: translate(-10%, 20%); 
+
+    /* Giao diện nút (Viên thuốc) */
+    background: #00f2ff;
+    color: #0d1835;
+    padding: 8px 16px;       /* Độ dày nút */
+    border-radius: 30px;     /* Bo tròn */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Giữ chữ luôn nằm trên 1 dòng */
+}
+
+/* Hiệu ứng khi rê chuột */
+.btn-download-cv:hover {
+    background: #fff;
+    color: #00f2ff;
+    transform: translate(-10%, 15%) scale(1.05); /* Phóng to nhẹ */
+    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.6);
+}
 
 /* 2. Khung chứa nội dung chính (Card) */
 .about-container.modern-layout {
