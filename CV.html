@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV_LuuNguyenAiNgan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Thiết lập khổ giấy A4 */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f0f0f0;
+            color: #333;
+            -webkit-print-color-adjust: exact; /* In ra đúng màu */
+        }
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #fff;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+        }
+        
+        /* CỘT TRÁI (XANH ĐẬM) */
+        .left-col {
+            width: 35%;
+            background: #0d1835; /* Màu Dark blue giống web */
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00f2ff; /* Viền Cyan */
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            text-align: left;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #b6c2e2;
+        }
+        .contact-item i {
+            width: 30px;
+            color: #00f2ff;
+        }
+        
+        .section-title-small {
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+            margin: 30px 0 15px;
+            font-size: 1rem;
+            color: #fff;
+            text-align: left;
+        }
+        
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        .skill-list li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #e6f1ff;
+        }
+        
+        /* CỘT PHẢI (TRẮNG) */
+        .right-col {
+            width: 65%;
+            padding: 40px 30px;
+        }
+        
+        .name-header h1 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            color: #0d1835;
+            margin: 0;
+            font-weight: 900;
+        }
+        .name-header h3 {
+            font-size: 1.1rem;
+            color: #06b6d4; /* Màu Cyan đậm hơn để dễ đọc trên nền trắng */
+            margin: 5px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .summary {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #0d1835;
+            border-bottom: 2px solid #0d1835;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            margin-top: 25px;
+        }
+        
+        .job-item { margin-bottom: 20px; }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .job-sub {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .job-desc {
+            font-size: 0.9rem;
+            color: #444;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+        .job-desc li { margin-bottom: 5px; }
+
+        /* Ẩn khi in */
+        @media print {
+            body { background: #fff; }
+            .a4-page { margin: 0; box-shadow: none; width: 100%; height: 100%; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print" style="text-align: center; padding: 20px;">
+        <button onclick="window.print()" style="padding: 15px 30px; font-size: 1.2rem; background: #00f2ff; border: none; font-weight: bold; cursor: pointer; border-radius: 5px;">
+            <i class="fas fa-file-pdf"></i> Lưu thành PDF ngay
+        </button>
+        <p>Hoặc nhấn <b>Ctrl + P</b> > Chọn "Save as PDF"</p>
+    </div>
+
+    <div class="a4-page">
+        <div class="left-col">
+            <img src="img/avatar.png" alt="Avatar" class="avatar">
+            
+            <div class="section-title-small">Contact</div>
+            <div class="contact-info">
+                <div class="contact-item"><i class="fas fa-phone"></i> (+84) 123 456 789</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> ngan22082020@gmail.com</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Ho Chi Minh City, VN</div>
+                <div class="contact-item"><i class="fab fa-github"></i> github.com/NguyenHin</div>
+            </div>
+
+            <div class="section-title-small">Core Skills</div>
+            <ul class="skill-list">
+                <li>Flutter / Dart</li>
+                <li>JavaScript / ReactJS</li>
+                <li>NodeJS / Express</li>
+                <li>Firebase & Git</li>
+                <li>Figma UI/UX</li>
+            </ul>
+
+            <div class="section-title-small">Education</div>
+            <div style="text-align: left; margin-bottom: 15px;">
+                <strong style="color: #00f2ff;">HUTECH University</strong><br>
+                <span style="font-size: 0.85rem; color: #b6c2e2;">2022 - Present</span><br>
+                <span style="font-size: 0.9rem;">Software Engineering</span><br>
+                <span style="font-size: 0.85rem;">GPA: 3.2/4.0</span>
+            </div>
+
+            <div class="section-title-small">Languages</div>
+            <ul class="skill-list">
+                <li>Vietnamese (Native)</li>
+                <li>English (B1 Certificate)</li>
+            </ul>
+        </div>
+
+        <div class="right-col">
+            <div class="name-header">
+                <h1>LUU NGUYEN AI NGAN</h1>
+                <h3>Software Developer</h3>
+            </div>
+
+            <p class="summary">
+                Aspiring to become a top-tier Software Engineer, committed to continuous innovation and creative problem-solving. With a professional work ethic, I seek dynamic environments to accelerate my technical growth in Mobile (Flutter) and Web Development. My goal is to deliver high-quality software solutions and become a strategic technical contributor.
+            </p>
+
+            <div class="section-title">Projects</div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span>TotalEnglish App</span>
+                    <span>Mobile Developer</span>
+                </div>
+                <div class="job-sub">Technologies: Flutter, Firebase, Azure Speech API</div>
+                <ul class="job-desc">
+                    <li>Developed a cross-platform English learning app for primary students (Grades 1-5).</li>
+                    <li>Built interactive UI/UX and integrated Speech-to-Text for pronunciation practice.</li>
+                    <li>Managed user authentication and data synchronization using Cloud Firestore.</li>
+                    <li>Optimized app performance with lazy loading and clean architecture.</li>
+                </ul>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span>NOVAShop</span>
+                    <span>Frontend Developer</span>
+                </div>
+                <div class="job-sub">Technologies: HTML, CSS, JavaScript</div>
+                <ul class="job-desc">
+                    <li>Built a responsive e-commerce interface for browsing and purchasing clothing.</li>
+                    <li>Implemented async data fetching for smooth product loading without blocking UI.</li>
+                    <li>Developed shopping cart functionality using LocalStorage and JavaScript logic.</li>
+                </ul>
+            </div>
+
+            <div class="section-title">Certifications</div>
+            <div class="job-item">
+                <ul class="job-desc" style="padding-left: 0; list-style: none;">
+                    <li><strong>• Certificate of English (B1)</strong></li>
+                    <li><strong>• JavaScript Essentials 1 & 2</strong> (Cisco Academy)</li>
+                    <li><strong>• Networking Basics</strong> (Cisco)</li>
+                    <li><strong>• Communication Skills Certificate</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

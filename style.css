@@ -10,7 +10,7 @@
     --accent-glow: rgba(0, 242, 255, 0.4);
     --accent-cyan: #06b6d4;
 
-    --font-main: 'Outfit', sans-serif;
+    --font-main: 'Be Vietnam Pro', sans-serif;  
     --font-code: 'Fira Code', monospace;
     --section-spacing: 140px;
     --radius-lg: 20px;
@@ -180,7 +180,7 @@ body {
 /* TITLE */
 .hero-content h1 {
     margin-bottom: 18px;
-    font-size: clamp(3rem, 6.5vw, 4.8rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 900;
     line-height: 1.05;
     text-transform: uppercase;
@@ -191,7 +191,10 @@ body {
     display: block;
     margin-top: 6px;
     font-size: 0.55em;            /* 👈 nhỏ hơn rõ ràng */
-    letter-spacing: 4px;
+    letter-spacing: 2px;
+    line-height: 1.4;           /* Tăng khoảng cách dòng để không bị mất dấu */
+    padding-bottom: 5px;        /* Tạo không gian phía dưới để không bị cắt chữ */
+    overflow: visible;
 
     background: linear-gradient(90deg, #00f2ff, #2962ff);
     -webkit-background-clip: text;
@@ -207,21 +210,48 @@ body {
 }
 
 /* BUTTON */
+/* Tìm và thay thế đoạn liên quan đến button cũ */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Giảm padding chiều ngang từ 60px xuống khoảng 30-35px */
+    padding: 16px 32px; 
+    
+    border-radius: 999px;
+    font-weight: 700; /* 900 hơi dày, 700 sẽ thanh thoát hơn cho tiếng Việt */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: .4s;
+    text-decoration: none;
+    font-size: 0.9rem; /* Đảm bảo cỡ chữ vừa phải */
+    white-space: nowrap; /* Giữ chữ trên một dòng */
+}
+
 .btn-primary {
     background: linear-gradient(90deg, #00f2ff, #2962ff);
     color: #020617;
-    padding: 18px 60px;
-    border-radius: 999px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    box-shadow: 0 20px 50px rgba(0,242,255,.35);
-    transition: .4s;
+    box-shadow: 0 15px 35px rgba(0,242,255,.25);
 }
 
-.btn-primary:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 30px 80px rgba(0,242,255,.5);
+.btn-secondary {
+    /* Thay đổi cách dùng margin để linh hoạt hơn */
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    border: 1px solid var(--accent-color);
+    margin-left: 0; /* Xóa margin-left cũ */
+}
+.btn-secondary {
+    background: linear-gradient(90deg, #00f2ff, #2962ff);
+    color: #020617;
+    box-shadow: 0 15px 35px rgba(0,242,255,.25);
+}
+
+/* Hiệu ứng hover */
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,242,255,.4);
 }
 
 /* CODE BACKGROUND */
@@ -334,6 +364,641 @@ pre {
     opacity: .3;
 }
 
+/* ================= ABOUT ME MODAL (FINAL SCROLLABLE CSS) ================= */
+
+/* 1. Ẩn mặc định & Overlay */
+#about {
+    display: none; 
+}
+/* Container bọc nội dung cột trái */
+.left-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 30px; /* Khoảng cách giữa ảnh và học vấn */
+}
+/* Container cho danh sách chứng chỉ mini */
+.cert-mini-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Từng dòng chứng chỉ */
+.cert-mini-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+.cert-mini-item:hover {
+    background: rgba(0, 242, 255, 0.05);
+    border-color: rgba(0, 242, 255, 0.3);
+    transform: translateX(10px);
+}
+/* --- LÀM ĐẸP TIÊU ĐỀ KHỐI --- */
+.info-title {
+    font-size: 0.85rem !important;
+    letter-spacing: 2px;
+    color: var(--accent-color) !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px !important;
+    border: none !important; /* Bỏ border cũ */
+}
+
+.info-title i {
+    font-size: 1rem;
+}
+
+/* --- LÀM ĐẸP THẺ HỌC VẤN --- */
+.edu-card-modern {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.edu-card-modern:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 242, 255, 0.2);
+}
+
+.edu-line {
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent-color), transparent);
+    border-radius: 10px;
+}
+
+.year-tag {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    background: rgba(0, 242, 255, 0.1);
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.edu-content strong {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.edu-content p {
+    font-size: 0.85rem !important;
+    color: var(--text-dim) !important;
+    margin: 0 !important;
+}
+
+.edu-status {
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: #27c93f;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.edu-status .dot {
+    width: 6px;
+    height: 6px;
+    background: #27c93f;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #27c93f;
+    animation: blink 1.5s infinite;
+}
+
+/* --- LÀM ĐẸP BADGE KỸ NĂNG --- */
+.skills-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s all ease;
+    cursor: default;
+}
+
+.skill-badge i {
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+.skill-badge:hover {
+    background: rgba(0, 242, 255, 0.1);
+    border-color: var(--accent-color);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.1);
+}
+
+/* Hiệu ứng nhấp nháy cho trạng thái */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+/* Icon của chứng chỉ */
+.cert-mini-item i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    width: 25px;
+    text-align: center;
+}
+
+/* Nội dung chữ trong chứng chỉ */
+.cert-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-info strong {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.cert-info span {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+/* Style cho phần học vấn nằm dưới ảnh */
+.education-sidebar {
+    width: 100%;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.education-sidebar .info-title {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Biến danh sách kỹ năng thành dạng Tag cho hiện đại */
+.skills-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    background: rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    color: var(--accent-color);
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .left-content-wrapper {
+        gap: 20px;
+    }
+    .education-sidebar {
+        text-align: center; /* Trên mobile ảnh căn giữa thì chữ cũng căn giữa */
+    }
+    .education-sidebar .info-title {
+        border-left: none;
+        border-bottom: 2px solid var(--accent-color);
+        display: inline-block;
+        padding: 0 10px 5px;
+    }
+}
+
+.about-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 11, 28, 0.95);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease forwards;
+    padding: 20px; /* Tạo khoảng cách an toàn với mép màn hình */
+}
+
+/* 2. Khung chứa nội dung chính (Card) */
+.about-container.modern-layout {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    background: var(--bg-secondary);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+    
+    /* Layout Flex */
+    display: flex;
+    overflow: hidden; /* Bo góc */
+    
+    /* --- CẤU HÌNH CUỘN (SCROLL) QUAN TRỌNG --- */
+    max-height: 85vh;       /* Chiều cao tối đa 85% màn hình */
+    overflow-y: auto;       /* Tự hiện scrollbar khi dài */
+    overflow-x: hidden;     /* Chặn cuộn ngang */
+    
+    animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Tùy chỉnh thanh cuộn đẹp (Neon) */
+.about-container.modern-layout::-webkit-scrollbar {
+    width: 8px;
+}
+.about-container.modern-layout::-webkit-scrollbar-track {
+    background: #081025; 
+}
+.about-container.modern-layout::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+.about-container.modern-layout::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
+
+/* 3. Nút đóng (Sticky: Luôn dính ở góc khi cuộn) */
+.about-close {
+    position: sticky;  /* Quan trọng: giữ nút đứng yên */
+    top: 15px;         /* Cách mép trên */
+    left: 100%;        /* Đẩy sang phải cùng */
+    float: right;      /* Hỗ trợ layout */
+    margin-right: 20px;
+    
+    font-size: 2.2rem;
+    color: var(--text-dim);
+    cursor: pointer;
+    z-index: 100;
+    line-height: 1;
+    transition: 0.3s;
+    background: rgba(4, 11, 28, 0.5); /* Nền mờ để không chìm vào nội dung */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-close:hover {
+    color: var(--accent-color);
+    background: #fff;
+    transform: rotate(90deg);
+}
+
+/* --- CỘT TRÁI: ẢNH --- */
+/* --- CỘT TRÁI: CHỨA ẢNH TRÒN --- */
+.about-left-col {
+    width: 38%; 
+    background: rgba(0, 0, 0, 0.2); /* Nền tối nhẹ cho cột trái */
+    border-right: 1px solid rgba(0, 242, 255, 0.1); /* Viền ngăn cách với nội dung */
+    
+    /* Căn giữa ảnh theo chiều dọc và ngang */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Style cho ảnh Avatar tròn */
+.profile-img {
+    width: 300px;   /* Kích thước ảnh */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%; /* Làm tròn ảnh */
+    
+    /* Hiệu ứng viền Neon */
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.25); /* Glow nhẹ */
+    
+    transition: 0.4s;
+}
+
+/* Hiệu ứng khi rê chuột vào ảnh
+.profile-img:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 0 50px rgba(0, 242, 255, 0.5);
+    border-color: #fff;
+} */
+
+/* --- RESPONSIVE MOBILE (Sửa lại phần ảnh cho mobile) --- */
+@media (max-width: 768px) {
+    /* ... các code cũ giữ nguyên ... */
+
+    /* Sửa riêng phần ảnh trên mobile */
+    .about-left-col {
+        width: 100%;
+        height: auto;       /* Chiều cao tự động theo ảnh */
+        padding: 30px 0;    /* Cách trên dưới */
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .profile-img {
+        width: 140px;  /* Nhỏ hơn trên mobile */
+        height: 140px;
+    }
+}
+
+/* --- CỘT PHẢI: NỘI DUNG --- */
+.about-right-col {
+    width: 62%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.about-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 20px;
+    margin-right: 10px; /* Tránh đè nút đóng */
+}
+
+.name-block .name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    line-height: 1.1;
+    margin-bottom: 5px;
+}
+.name-block .job-title {
+    font-size: 0.85rem;
+    color: #fff;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+/* --- CONTACT MINI (Căn chỉnh đều tăm tắp) --- */
+.contact-mini {
+    display: flex;
+    flex-direction: column; /* Xếp dọc */
+    gap: 12px;              /* Khoảng cách đều giữa các dòng */
+    justify-content: center;
+}
+
+.c-item {
+    display: flex;
+    align-items: center;    /* Căn giữa icon và chữ theo chiều dọc */
+    justify-content: flex-start; /* Căn trái nội dung */
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+/* Quan trọng: Quy định độ rộng cố định cho Icon để chữ thẳng hàng */
+.contact-mini i {
+    width: 35px;            /* Chiều rộng cố định cho vùng chứa icon */
+    height: 35px;
+    
+    /* Căn icon nằm giữa vùng chứa của nó */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Trang trí icon */
+    background: rgba(0, 242, 255, 0.1); /* Nền mờ sau icon */
+    color: var(--accent-color);
+    border-radius: 50%;     /* Icon hình tròn */
+    margin-right: 12px;     /* Khoảng cách từ icon đến chữ */
+    font-size: 0.9rem;
+}
+
+/* Hover vào dòng nào thì dòng đó sáng lên */
+.c-item:hover {
+    color: #fff;
+}
+.c-item:hover i {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .contact-mini {
+        margin-top: 10px;
+        align-items: flex-start; /* Trên mobile căn trái */
+        width: 100%;
+    }
+}
+/* Vision Box */
+.vision-box {
+    border: 2px solid var(--accent-color);
+    background: rgba(0, 242, 255, 0.02);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+.vision-box p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+.vision-box p:last-child { margin-bottom: 0; }
+
+/* Info Split */
+.info-split {
+    display: flex;
+    gap: 30px;
+}
+.info-group { flex: 1; }
+
+.info-title {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* --- ĐỒNG BỘ HỌC VẤN (Tương tự Cert) --- */
+.edu-mini-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.edu-mini-item {
+    display: flex;
+    align-items: flex-start; /* Để icon căn theo dòng đầu của text */
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+.edu-mini-item:hover {
+    background: rgba(0, 242, 255, 0.05);
+    border-color: rgba(0, 242, 255, 0.3);
+    transform: translateX(10px);
+}
+
+.edu-mini-item i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 242, 255, 0.1);
+    border-radius: 8px;
+}
+
+.edu-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.edu-info .school-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.edu-info .major {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.edu-info .edu-meta {
+    font-size: 0.75rem;
+    font-family: var(--font-code);
+    color: var(--accent-color);
+    margin-top: 2px;
+}
+
+/* Skills List */
+.skill-mini-list { list-style: none; margin-bottom: 20px; }
+.skill-mini-list li {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+}
+.skill-mini-list li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Button Download */
+.btn-download-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 25px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.btn-download-mini:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0,242,255,0.4);
+}
+
+/* Animations */
+@keyframes fadeIn { from {opacity: 0} to {opacity:1} }
+@keyframes slideUp { from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+
+/* ================= RESPONSIVE MOBILE ================= */
+@media (max-width: 768px) {
+    .about-container.modern-layout {
+        flex-direction: column; /* Xếp dọc */
+        max-height: 85vh;
+    }
+
+    /* Ảnh nhỏ lại */
+    .about-left-col {
+        width: 100%;
+        height: 250px;
+        flex: none;
+    }
+
+    .about-right-col {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .about-header-row {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .contact-mini { text-align: left; }
+    
+    .info-split {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .about-close {
+        top: 10px;
+        right: 10px;
+        margin-right: 0;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+    }
+}
+
+
+
 /* ================= SKILLS – MODERN GRID STYLE ================= */
 
 .bg-dark {
@@ -354,35 +1019,52 @@ pre {
     z-index: 0;
 }
 
+/* Layout lưới cho kỹ năng */
 .skills-grid {
-    display: grid;
-    /* Tự động chia cột, tối thiểu 300px mỗi thẻ */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    position: relative;
-    z-index: 1;
-}
-.skills-grid-wrapper {
-    max-height: 500px;   /* Chiều cao cố định của khung */
-    overflow-y: auto;    /* Cho phép cuộn dọc */
-    padding-right: 10px; /* Tránh nội dung bị che bởi scrollbar */
-    scrollbar-width: thin;          /* Firefox */
-    scrollbar-color: var(--accent-color) rgba(255,255,255,0.1); /* Firefox */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-/* Chrome, Edge, Safari */
-.skills-grid-wrapper::-webkit-scrollbar {
-    width: 2px;
+/* Thẻ kỹ năng cá nhân */
+.skill-tag-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px; /* Bo tròn kiểu viên thuốc */
+    transition: all 0.3s ease;
+    cursor: default;
 }
 
-.skills-grid-wrapper::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
+/* Icon trong kỹ năng */
+.skill-tag-item i {
+    font-size: 1.1rem;
+    color: var(--skill-color); /* Lấy màu từ biến style ở HTML */
 }
 
-.skills-grid-wrapper::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 10px;
+/* Text trong kỹ năng */
+.skill-tag-item span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+/* Hiệu ứng Hover: Phát sáng theo màu thương hiệu */
+.skill-tag-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--skill-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px -5px var(--skill-color);
+    color: #fff;
+}
+
+.skill-tag-item:hover span {
+    color: #fff;
 }
 
 
@@ -529,7 +1211,91 @@ pre {
     background: var(--accent-color);
     border-radius: 10px;
 }
+/* Container chứa các nút trong Project */
+/* Container bọc 2 nút */
+.project-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
 
+/* Gộp chung màu sắc cho cả 2 nút giống hệt nhau */
+.btn-git, .btn-detail {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    /* Màu nền tối và viền nhẹ giống nút Xem chi tiết cũ */
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hiệu ứng Hover chung cho cả 2 nút */
+.btn-git:hover, .btn-detail:hover {
+    background: rgba(255, 255, 255, 0.12); /* Sáng lên một chút khi hover */
+    border-color: var(--accent-color);   /* Viền đổi sang màu xanh neon */
+    color: var(--accent-color);          /* Chữ đổi sang màu xanh neon */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.1);
+}
+
+/* Icon trong nút */
+.btn-git i, .btn-detail i {
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-git:hover i, .btn-detail:hover i {
+    transform: scale(1.1);
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.feature-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.feature-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.feature-item h4 {
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.feature-item p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
 /* Nếu muốn cuộn ngang thay vì dọc */
 .projects-wrapper-scroll-horizontal {
     display: flex;
@@ -1085,6 +1851,114 @@ pre {
 .contact-card p {
     font-size: 1rem;
     color: var(--text-main);
+}
+/* BLOG GRID */
+.blog-wrapper-scroll {
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+/* .blog-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;} /* cuộn ngang */
+ */
+
+.blog-card {
+    background-color: #1e1e1e; /* màu nền cho card, vì section bg-dark */
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 250px; /* chiều rộng nhỏ */
+    flex: 0 0 auto;   /* không co dãn */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,242,255,0.7);
+}
+
+.blog-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #00f2ff;
+}
+
+.blog-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+}
+
+.blog-card p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.blog-card .link-arrow {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00f2ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* --- SỬA BLOG GRID THÀNH DỌC --- */
+.blog-grid.skills-grid {
+    display: grid;
+    /* Tự động chia cột giống Skill: 1 cột trên mobile, 3 cột trên desktop */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    flex-wrap: wrap; /* Cho phép rớt dòng */
+}
+
+/* --- ĐỒNG BỘ BLOG CARD VỚI SKILL CARD --- */
+.blog-card.skill-card {
+    cursor: pointer;
+    text-align: left;
+    min-height: 300px; /* Độ cao để các thẻ đều nhau */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; /* Căn trái nội dung */
+}
+
+/* Làm đẹp nút Xem tóm tắt */
+.blog-card .link-arrow {
+    margin-top: auto; /* Đẩy nút xuống đáy card */
+    padding-top: 20px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.blog-card:hover .link-arrow {
+    letter-spacing: 1px;
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+.blog-card .link-arrow:hover {
+    text-decoration: underline;
+}
+.blog-card.skill-card {
+    cursor: pointer;
+    text-align: left; /* Căn trái giống skill card */
+    min-height: 350px; /* Đảm bảo các card đều nhau */
+}
+
+.blog-card .link-arrow {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.blog-card:hover .link-arrow {
+    filter: drop-shadow(0 0 5px var(--accent-color));
+    padding-left: 5px;
 }
 
 /* ================= FOOTER ================= */
