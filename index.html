@@ -3,464 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngân Lưu | Portfolio Kỹ Sư Phần Mềm</title>
-    <!-- <link rel="stylesheet" href="blog.css"> -->
+    <title>Ngân Lưu | Tester Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700;900&family=Fira+Code&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
 <body>
 
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
     <div class="logo">NGAN LUU</div>
     <ul class="nav-links">
-        <li><a href="#home" class="nav.home">TRANG CHỦ</a></li>
-        <!-- <a href="#about" class="btn btn-primary">About Me ↗</a> -->
-
-
-        <li><a href="#skills" data-i18n="nav.skills">KỸ NĂNG</a></li>
-        <li><a href="#projects" data-i18n="nav.projects">DỰ ÁN</a></li>
-        <li><a href="#blog" data-i18n="nav.blog">GÓC CHIA SẺ</a></li>
-        <li><a href="#certificates" data-i18n="nav.certificates">CHỨNG CHỈ</a></li>
-        <li><a href="#contact" class="btn-nav" data-i18n="nav.contact">LIÊN HỆ</a></li>
-
+        <li><a href="#home">TRANG CHỦ</a></li>
+        <li><a href="#about">GIỚI THIỆU</a></li>
+        <li><a href="#skills">KỸ NĂNG</a></li>
+        <li><a href="#projects">DỰ ÁN</a></li>
+        <li><a href="#certificates">CHỨNG CHỈ</a></li>
+        <li><a href="#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">LIÊN HỆ</a></li>
     </ul>
 </nav>
 
-<!-- ================= HOME ================= -->
+<!-- ================= HERO ================= -->
 <section id="home" class="hero">
     <div class="container hero-container">
 
-        <!-- BÊN TRÁI: TEXT -->
         <div class="hero-content">
-            <span class="subtitle">Xin chào! Chào mừng đến với không gian của tôi</span>
+            <span class="subtitle">Xin chào 👋</span>
 
-            <h1>Lưu Nguyễn Ái Ngân <br><span class="accent-text">Ngành công nghệ thông tin</span></h1>
+            <div class="name-container">
+                <h1 class="main-name">Lưu Nguyễn Ái Ngân</h1>
+                <div class="accent-text">Tester Intern</div>
+            </div>
 
             <p class="description">
-                Sinh viên Kỹ thuật phần mềm tại HUTECH University
-            </p>
+                Sinh viên CNTT định hướng Software Tester. Có kinh nghiệm kiểm thử thủ công,
+                viết test case và kiểm thử chức năng trong dự án thực tế.
             </p>
 
-            <a href="#projects" class="btn btn-primary">Dự án tiêu biểu ↗</a>
-            <a href="#about" class="btn btn-secondary">Giới thiệu bản thân ↗</a>
-
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">Dự án ↗</a>
+                <a href="#about" class="btn btn-primary">Giới thiệu ↗</a>
+                <a href="CV.html" target="_blank" class="btn btn-primary"><i class="fa-solid fa-file-pdf" style="margin-right: 5px;"></i> Xem & Tải CV</a>
+            </div>
         </div>
 
-        <!-- BÊN PHẢI: AVATAR + CODE -->
         <div class="hero-visual">
-            <img src="img/avatar.png" alt="Avatar" class="hero-avatar">
-
-            <div class="code-block-wrapper">
-<pre><code>
-const developer = {
-    name: "NGAN",
-    skills: ["JS", "React", "Node", "Flutter", "Git"],
-    solve: (p) => "Done!"
-};
-</code></pre>
-            </div>
+            <img src="img/avatar.png" class="hero-avatar" alt="Avatar">
         </div>
 
     </div>
 </section>
 
-<!-- ================= ABOUT ME ================= -->
-<section id="about" style="display:none;">
-    <div class="about-overlay">
-        <div class="about-container modern-layout">
-            <span class="about-close">&times;</span>
-           
-            <div class="about-left-col">
-                <div class="left-content-wrapper">
-                    <img src="img/avatar.png" alt="Avatar" class="profile-img">
-                    
-                    <div class="info-group education-sidebar">
-                        <h3 class="info-title">HỌC VẤN</h3>
-                        <div class="edu-item">
-                            <span class="year">2022 - Hiện tại</span>
-                            <strong>HUTECH University</strong>
-                            <p>Chuyên ngành:<br>Kỹ thuật phần mềm</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">GIỚI THIỆU</h2>
 
-            <div class="about-right-col">
-                <div class="about-header-row">
-                    <div class="name-block">
-                        <h2 class="name">LƯU NGUYỄN<br>ÁI NGÂN</h2>
-                        <p class="job-title">LẬP TRÌNH VIÊN PHẦN MỀM</p>
-                    </div>
-                    
-                    <div class="contact-mini">
-                        <div class="c-item"><i class="fas fa-phone"></i> (+84) 123 456 789</div>
-                        <div class="c-item"><i class="fas fa-envelope"></i> ngan22082020@gmail.com</div>
-                        <div class="c-item"><i class="fas fa-map-marker-alt"></i> TP.HCM, Việt Nam</div>
-                    </div>
-                </div>
-
-                <div class="vision-box">
-                    <p>
-                        Thay vì ngồi nghiền ngẫm lý thuyết suông, mình chọn cách <span>bắt tay vào làm</span> để biến những ý
-                         tưởng trong đầu thành sản phẩm thực tế. Với mình, một ứng dụng tốt là khi nó giải quyết được vấn đề và mang lại niềm vui cho người dùng.                    </p>
-                    <p>
-                        Và <strong>sự kiên trì</strong> là chìa khóa để vượt qua mọi dòng code lỗi.
-                         Mục tiêu của mình rất đơn giản: Không ngừng học hỏi để tạo ra những sản phẩm mà chính mình cũng cảm thấy tự hào.
-                  </p>
-                    </p>
-                </div>
-
-                <h3 class="info-title"><i class="fas fa-code"></i> KỸ NĂNG CỐT LÕI</h3>
-                <div class="skills-grid">
-                    <div class="skill-tag-item" style="--skill-color: #f7df1e;">
-                        <i class="fab fa-js"></i> <span>JavaScript</span>
-                    </div>
-                    <div class="skill-tag-item" style="--skill-color: #61dafb;">
-                        <i class="fab fa-react"></i> <span>ReactJS</span>
-                    </div>
-                    
-                    <div class="skill-tag-item" style="--skill-color: #68a063;">
-                        <i class="fab fa-node-js"></i> <span>NodeJS</span>
-                    </div>
-                    
-                    <div class="skill-tag-item" style="--skill-color: #02569b;">
-                        <i class="fas fa-mobile-alt"></i> <span>Flutter</span>
-                    </div>
-
-                    <div class="skill-tag-item" style="--skill-color: #f05032;">
-                        <i class="fab fa-git-alt"></i> <span>Git / GitHub</span>
-                    </div>
-                    <div class="skill-tag-item" style="--skill-color: #ffca28;">
-                        <i class="fas fa-fire"></i> <span>Firebase</span>
-                    </div>
-                </div>
-                <div class="info-group" style="margin-top: 30px;">
-                <h3 class="info-title">CHỨNG CHỈ & GIẢI THƯỞNG</h3>
-                <div class="cert-mini-list">
-                    <div class="cert-mini-item">
-                        <i class="fas fa-certificate"></i>
-                        <div class="cert-info">
-                            <strong>Tiếng Anh (B1)</strong>
-                            <span>VSTEP - 2025</span>
-                        </div>
-                    </div>
-                    <div class="cert-mini-item">
-                        <i class="fas fa-award"></i>
-                        <div class="cert-info">
-                            <strong>JavaScript Essentials 1 & 2</strong>
-                            <span>Cisco Networking Academy</span>
-                        </div>
-                    </div>
-                    <div class="cert-mini-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <div class="cert-info">
-                            <strong>Networking Basics</strong>
-                            <span>Cisco Networking Academy</span>
-                        </div>
-                    </div>
-                     <a href="CV_LuuNguyenAiNgan.pdf" download class="btn-download-cv" title="Tải CV của tôi">
-                        <i class="fas fa-file-download"></i>
-                        <span>Tải CV</span>
-                    </a>
-                </div>
-            </div>
-            </div> 
-        </div> 
-    </div> 
+        <div class="about-content card">
+            <p>
+                Sinh viên Công nghệ thông tin định hướng trở thành Tester. Có kiến thức cơ bản về kiểm thử phần mềm và đã thực hành viết test case, kiểm thử chức năng trong các dự án cá nhân. Là người cẩn thận, tỉ mỉ và có tinh thần học hỏi, đang từng bước tìm hiểu về chất lượng sản phẩm và trải nghiệm người dùng. Mong muốn được tham gia thực tập để tích lũy kinh nghiệm thực tế, đồng thời phát triển kỹ năng chuyên môn trong lĩnh vực QA/Tester và hướng đến trở thành một Tester chuyên nghiệp trong tương lai.
+            </p>
+        </div>
+    </div>
 </section>
-
-
-
-
 
 <!-- ================= SKILLS ================= -->
 <section id="skills" class="section bg-dark">
     <div class="container">
-        <h2 class="section-title">KỸ NĂNG </h2>
+        <h2 class="section-title">KỸ NĂNG</h2>
 
-        <!-- Khung cuộn -->
-        <div class="skills-grid-wrapper">
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>ReactJS</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-node-js"></i>
-                    <h3>NodeJS</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-flutter"></i>
-                    <h3>Flutter</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-git-alt"></i>
-                    <h3>Git</h3>
-                </div>
-                
-            </div>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fa-solid fa-list-check" style="margin-right: 8px; color: var(--accent);"></i> Manual Testing</div>
+            <div class="skill-card"><i class="fa-solid fa-file-pen" style="margin-right: 8px; color: var(--accent);"></i> Test Case</div>
+            <div class="skill-card"><i class="fa-solid fa-gear" style="margin-right: 8px; color: var(--accent);"></i> Functional Testing</div>
+            <div class="skill-card"><i class="fa-solid fa-mobile-screen" style="margin-right: 8px; color: var(--accent);"></i> UI Testing</div>
+            <div class="skill-card"><i class="fa-brands fa-jira" style="margin-right: 8px; color: var(--accent);"></i> Jira</div>
+            <div class="skill-card"><i class="fa-solid fa-database" style="margin-right: 8px; color: var(--accent);"></i> MySQL</div>
+            <div class="skill-card"><i class="fa-solid fa-rocket" style="margin-right: 8px; color: var(--accent);"></i> Postman</div>
         </div>
     </div>
 </section>
-
 
 <!-- ================= PROJECTS ================= -->
- <section id="projects" class="section">
+<section id="projects" class="section">
     <div class="container">
-        <h2 class="section-title">DỰ ÁN TIÊU BIỂU</h2>
+        <h2 class="section-title">DỰ ÁN</h2>
 
-        <!-- Khung cuộn -->
-        <div class="projects-wrapper-scroll">
-            <div class="projects-wrapper">
-                
-                <div class="project-row">
-                    <div class="project-info">
-                        <span class="project-tag">Đồ án chuyên ngành</span>
-                        <h3>TotalEnglish App</h3>
-                        <p>Ứng dụng Android hỗ trợ học tiếng Anh cho học sinh tiểu học (lớp 1-5). 
-                            Tích hợp lộ trình học đơn giản, bài tập tương tác, luyện nghe và trò chơi.</p>            
-                        <ul class="tags">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>Mobile App</li>
-                        </ul>
-                        <a href="https://github.com/NguyenHin/TotalEnglish/tree/develop/lib"
-                        class="btn-git" target="_blank" rel="noopener noreferrer">
-                            Link Git <i class="fa-brands fa-github"></i>
-                        </a>
-                       <a href="#" class="btn-detail" data-id="total-english">
-                            Xem chi tiết <i class="fa-solid fa-circle-info"></i>
-                        </a>
-                    </div>
-                    <div class="project-image-placeholder">
-                        <img src="img/totalenglish.png" alt="TotalEnglish App" class="project-image">
-                    </div>
-                </div>
-                
+        <div class="projects-grid">
 
-               <div class="project-row reverse">
-                    <div class="project-info">
-                        <span class="project-tag">Lập trình web</span>
-                        <h3>NOVAShop</h3>
-                        <p>Nền tảng thương mại điện tử để duyệt, mua sắm và quản lý quần áo với tính năng thanh toán an toàn và theo dõi đơn hàng.</p>                      
-                        <ul class="tags">
-                            <li>JavaScript</li>
-                            <li>CSS</li>
-                            <li>HTML</li>
-                        </ul>
-                        
-                      <div class="project-links">
-                            <a href="https://github.com/ThienY04/NOVAShop.git" class="btn-git" target="_blank" rel="noopener noreferrer">
-                                Link Git <i class="fa-brands fa-github"></i>
-                            </a>
-
-                            <a href="#" class="btn-detail" data-id="nova-shop">
-                                Xem chi tiết <i class="fa-solid fa-circle-info"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-image-placeholder">
-                        <img src="img/NovaShop.png" alt="NOVAShop Project" class="project-image">
-                    </div>
-                </div>
-                <div class="project-row"> <div class="project-info">
-                    <span class="project-tag">Lập trình trên môi trường windows</span>
-                    <h3> HighLands Coffee</h3>
-                    <p>Hệ thống hỗ trợ quản lý quán cà phê từ việc gọi món tại bàn, theo dõi kho nguyên liệu đến xử lý thanh toán và báo cáo doanh thu theo ngày.</p>
-                    
-                    <ul class="tags">
-                        <li>C#</li>
-                        <li>.NET</li>
-                        <li>SQL Server</li>
-                        <li>Entity Framework</li>
-                    </ul>
-                    
-                    <div class="project-links">
-                        <a href="https://github.com/NguyenHin/QLCF2.git" class="btn-git" target="_blank" rel="noopener noreferrer">
-                            Link Git <i class="fa-brands fa-github"></i>
-                        </a>
-
-                        <a href="#" class="btn-detail" data-id="coffee-mgmt">
-                            Xem chi tiết <i class="fa-solid fa-circle-info"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-image-placeholder">
-                    <img src="img/coffee.png" alt="Coffee Management Project" class="project-image">
-                </div>
+            <!-- PROJECT 1 -->
+            <div class="project-card" onclick="openProject('book')">
+                <i class="fa-solid fa-book-open" style="font-size: 2rem; color: var(--accent); margin-bottom: 15px;"></i>
+                <h3>BOOKTOTAL</h3>
+                <p>Website bán sách</p>
             </div>
 
-    </div>
-</section>
-
-
-<!-- ================= BLOG ================= -->
-<section id="blog" class="section bg-dark">
-    <div class="container">
-        <h2 class="section-title">Blog & Bài Viết</h2>
-
-        <div class="blog-wrapper-scroll">
-            <div class="blog-grid skills-grid">
-                <!-- Blog cards sẽ được tạo tự động từ blog-data.js -->
+            <!-- PROJECT 2 -->
+            <div class="project-card" onclick="openProject('english')">
+                <i class="fa-solid fa-language" style="font-size: 2rem; color: var(--accent); margin-bottom: 15px;"></i>
+                <h3>TotalEnglish</h3>
+                <p>Mobile App</p>
             </div>
+
         </div>
     </div>
 </section>
 
-
-
-<!-- ================= CERTIFICATES ================= -->
-<section id="certificates" class="section">
-    <div class="container">
-        <h2 class="section-title">CHỨNG CHỈ</h2>
-
-        <!-- Wrapper scroll -->
-        <div class="certificate-grid-wrapper"> 
-            <div class="certificate-wrapper">
-
-                <!-- Certificate 1 -->
-                <a href="img/AV.png" target="_blank" class="certificate-card-link">
-                    <div class="certificate-card">
-                        <img src="img/AV.png" alt="English Certificate">
-                        <h3>Tiếng Anh (B1)</h3>
-                    </div>
-                </a>
-
-                <!-- Certificate 2 -->
-                <a href="img/KN.png" target="_blank" class="certificate-card-link">
-                    <div class="certificate-card">
-                        <img src="img/KN.png" alt="Communication Skills">
-                        <h3>Kỹ năng giao tiếp</h3>
-                    </div>
-                </a>
-
-                <!-- Certificate 3 -->
-                <a href="img/NetworkingBasics.png" target="_blank" class="certificate-card-link">
-                    <div class="certificate-card">
-                        <img src="img/NetworkingBasics.png" alt="Networking Basics">
-                        <h3>Networking Basics</h3>
-                    </div>
-                </a>
-
-                <!-- Certificate 4 -->
-                <a href="img/JavaScriptEssentials1.png" target="_blank" class="certificate-card-link">
-                    <div class="certificate-card">
-                        <img src="img/JavaScriptEssentials1.png" alt="JavaScript Essentials 1">
-                        <h3>JavaScript Essentials 1</h3>
-                    </div>
-                </a>
-
-                <!-- Certificate 5 -->
-                <a href="img/JavaScriptEssentials2.png" target="_blank" class="certificate-card-link">
-                    <div class="certificate-card">
-                        <img src="img/JavaScriptEssentials2.png" alt="JavaScript Essentials 2">
-                        <h3>JavaScript Essentials 2</h3>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-   <!-- ================= CONTACT INFO =================-->
-<section id="contact" class="section contact-section">
-    <div class="container">
-        <h2 class="section-title">Thông tin liên hệ</h2>
-        <div class="contact-info-grid">
-            <div class="contact-card">
-                <h3>SĐT</h3>
-                <p>+84 123 456 789</p>
-            </div>
-            <div class="contact-card">
-                <h3>Email</h3>
-                <p>ngan22082020@gmail.com</p>
-            </div>
-            <div class="contact-card">
-                <h3>Địa chỉ</h3>
-                <p>TP. Hồ Chí Minh, Việt Nam</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-    <div class="container">
-        <h2>Kết nối để cùng phát triển</h2>
-        <p>&copy; 2025 Ngan Luu. All Rights Reserved.</p>
-    </div>
-    
-</footer>
-<div id="feynman-modal">
-    <div class="feynman-box">
-        <!-- Nút đóng luôn ở trên -->
-        <span class="close-btn">&times;</span>
-
-        <!-- Nội dung scroll riêng -->
-        <div class="feynman-content">
-            <h2 id="fm-title"></h2>
-
-            <div class="fm-block">
-                <h4>Ý tưởng cốt lõi</h4>
-                <p id="fm-core"></p>
-            </div>
-
-            <div class="fm-block">
-                <h4>Giải thích đơn giản</h4>
-                <p id="fm-simple"></p>
-            </div>
-
-            <div class="fm-block">
-                <h4>Ví dụ thực tế</h4>
-                <p id="fm-example"></p>
-            </div>
-
-            <div class="fm-block highlight">
-                <strong id="fm-summary"></strong>
-            </div>
-        </div>
+<!-- ================= PROJECT MODAL ================= -->
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeProject()">&times;</span>
+        <div id="modal-body"></div>
     </div>
 </div>
 
-<div class="blog-grid"></div>
-<!-- ================= CHI TIET PROJECTS ================= -->
-<section id="project-modal" class="about-overlay" style="display:none;">
-    <div class="about-container modern-layout">
-        <span class="project-modal-close">&times;</span>
-        
-        <div class="about-right-col" style="width: 100%; padding: 40px;">
-            <div class="name-block" style="text-align: center; margin-bottom: 40px;">
-                <h2 id="pm-title" class="name">TÊN DỰ ÁN</h2>
-                <p id="pm-tag" class="job-title">MÔ TẢ NGẮN GỌN</p>
-            </div>
+<!-- ================= IMAGE VIEWER MODAL ================= -->
+<div id="image-viewer-modal" class="image-viewer-modal">
+    <span class="close-viewer" onclick="closeImageViewer()">&times;</span>
+    <img class="image-viewer-content" id="viewer-img">
+</div>
 
-            <div class="project-features-grid">
-                <div id="features-container" class="features-grid"></div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="" id="pm-link" target="_blank" class="btn-git">Xem trên GitHub <i class="fab fa-github"></i></a>
-            </div>
+<!-- ================= CERTIFICATES ================= -->
+<section id="certificates" class="section bg-dark">
+    <div class="container">
+        <h2 class="section-title">CHỨNG CHỈ</h2>
+
+        <div class="cert-container">
+            <ul class="cert-list">
+                <li>
+                    <div class="cert-header">
+                        <i class="fa-solid fa-certificate" style="color: var(--accent); margin-right: 15px; font-size: 1.2rem;"></i> Tiếng Anh B1
+                    </div>
+                    <img src="img/enng.png" alt="Tiếng Anh B1" class="cert-img" onclick="openImageViewer(this.src)">
+                </li>
+                <li>
+                    <div class="cert-header">
+                        <i class="fa-solid fa-certificate" style="color: var(--accent); margin-right: 15px; font-size: 1.2rem;"></i> JavaScript Essentials 1
+                    </div>
+                    <img src="img/java1.png" alt="JavaScript Essentials 1" class="cert-img" onclick="openImageViewer(this.src)">
+                </li>
+                <li>
+                    <div class="cert-header">
+                        <i class="fa-solid fa-certificate" style="color: var(--accent); margin-right: 15px; font-size: 1.2rem;"></i> JavaScript Essentials 2
+                    </div>
+                    <img src="img/java2.png" alt="JavaScript Essentials 2" class="cert-img" onclick="openImageViewer(this.src)">
+                </li>
+                <li>
+                    <div class="cert-header">
+                        <i class="fa-solid fa-certificate" style="color: var(--accent); margin-right: 15px; font-size: 1.2rem;"></i> Networking Basics
+                    </div>
+                    <img src="img/net.png" alt="Networking Basics" class="cert-img" onclick="openImageViewer(this.src)">
+                </li>
+                <li>
+                    <div class="cert-header">
+                        <i class="fa-solid fa-certificate" style="color: var(--accent); margin-right: 15px; font-size: 1.2rem;"></i> Kỹ năng Giao tiếp và Làm việc nhóm
+                    </div>
+                    <img src="img/kynangnoi.png" alt="Kỹ năng Giao tiếp" class="cert-img" onclick="openImageViewer(this.src)">
+                </li>
+            </ul>
         </div>
     </div>
 </section>
-<script src="blog/blog-data.js"></script>
-<script src="blog/blog-loader.js"></script>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">LIÊN HỆ</h2>
+
+        <div class="contact-info">
+            <p><i class="fa-solid fa-phone" style="color: var(--accent); width: 20px;"></i> 0949484385</p>
+            <p><i class="fa-solid fa-envelope" style="color: var(--accent); width: 20px;"></i> ngan22082020@gmail.com</p>
+            <p><i class="fa-solid fa-location-dot" style="color: var(--accent); width: 20px;"></i> TP.HCM</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>© 2025 Ngan Luu. All rights reserved.</p>
+</footer>
+
 <script src="script.js"></script>
-
-
 </body>
-
-
 </html>

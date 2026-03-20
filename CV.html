@@ -1,308 +1,251 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV_LuuNguyenAiNgan_Final</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        @page {
-            size: A4;
-            margin: 0;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #f0f0f0;
-            color: #333;
-            -webkit-print-color-adjust: exact;
-            font-size: 10.5pt; /* Cỡ chữ chuẩn, không quá to, không quá nhỏ */
-            line-height: 1.4;  /* Khoảng cách dòng vừa phải */
-        }
-        .a4-page {
-            width: 210mm;
-            min-height: 297mm;
-            background: #fff;
-            margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-        }
-        
-        /* --- CỘT TRÁI --- */
-        .left-col {
-            width: 32%;
-            background: #0d1835;
-            color: #fff;
-            padding: 30px 15px; /* Giảm padding trái phải */
-            text-align: center;
-        }
-        
-        .avatar {
-            width: 130px; 
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #00f2ff;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info {
-            text-align: left;
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-        .contact-item {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            color: #b6c2e2;
-        }
-        .contact-item i {
-            width: 25px;
-            color: #00f2ff;
-            font-size: 0.95rem;
-        }
-        
-        .section-title-small {
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 5px;
-            margin: 20px 0 10px;
-            font-size: 1rem;
-            color: #fff;
-            text-align: left;
-        }
-        
-        .skill-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-        .skill-list li {
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            color: #e6f1ff;
-        }
-        
-        /* --- CỘT PHẢI --- */
-        .right-col {
-            width: 68%;
-            padding: 30px 25px; /* Căn lề chuẩn */
-        }
-        
-        .name-header h1 {
-            font-size: 2rem;
-            text-transform: uppercase;
-            color: #0d1835;
-            margin: 0;
-            font-weight: 900;
-            line-height: 1.1;
-        }
-        .name-header h3 {
-            font-size: 1.1rem;
-            color: #06b6d4;
-            margin: 5px 0 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-        
-        .summary {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #555;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-        
-        .section-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #0d1835;
-            border-bottom: 2px solid #0d1835;
-            padding-bottom: 4px;
-            margin-bottom: 12px;
-            margin-top: 15px;
-        }
-        
-        /* Job Item - Ép gọn khoảng cách */
-        .job-item { 
-            margin-bottom: 12px; 
-            padding-bottom: 8px;
-            border-bottom: 1px dashed #b6c2e2;
-        }
-        .job-item:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV - Lưu Nguyễn Ái Ngân</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-        .job-header {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 2px;
-        }
+<style>
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    margin: 40px auto;
+    max-width: 800px;
+    color: #333;
+    line-height: 1.6;
+}
 
-        .job-header span:first-child::after {
-            content: "|";
-            margin: 0 8px;
-            color: #00f2ff;
-            font-weight: 400;
-        }
-        
-        .job-header span:last-child {
-            font-weight: 500;
-            color: #555;
-            font-size: 0.95rem;
-        }
+h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #2c3e50;
+}
 
-        .job-sub {
-            font-style: italic;
-            color: #06b6d4;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-        
-        .job-desc {
-            font-size: 0.9rem;
-            color: #444;
-            padding-left: 15px;
-            line-height: 1.4;
-            margin-top: 2px;
-            margin-bottom: 0;
-        }
-        .job-desc li { margin-bottom: 3px; }
+h2 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    color: #2980b9;
+    text-transform: uppercase;
+    font-size: 20px;
+}
 
-        /* Chia cột chứng chỉ để tiết kiệm không gian dọc */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5px 20px;
-        }
+.title-job {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+}
 
-        @media print {
-            body { background: #fff; }
-            .a4-page { margin: 0; box-shadow: none; width: 100%; height: 100%; }
-            .no-print { display: none; }
-        }
-    </style>
+.info {
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 150px;
+    /* Đã xóa thuộc tính height: 150px và object-fit: cover để ảnh hiển thị nguyên bản theo tỷ lệ thật */
+    height: auto;
+    border-radius: 8px;
+    max-height: 200px; /* Thêm max-height để ảnh quá cao cũng không bị vỡ bố cục */
+}
+
+.project-title {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.project-date {
+    font-style: italic;
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.tools {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.cert-item {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.cert-year {
+    font-weight: bold;
+    width: 60px;
+    color: #2980b9;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, #00e5ff, #2979ff);
+    color: #000;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.5);
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
 </head>
-<body>
 
-    <div class="no-print" style="text-align: center; padding: 15px; background: #eee;">
-        <button onclick="window.print()" style="padding: 10px 20px; font-size: 1.1rem; background: #00f2ff; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; color: #0d1835;">
-            <i class="fas fa-file-pdf"></i> Lưu PDF
-        </button>
-    </div>
+<body id="cv-content">
 
-    <div class="a4-page">
-        <div class="left-col">
-            <img src="img/avatar.png" alt="Avatar" class="avatar">
-            
-            <div class="section-title-small">LIÊN HỆ</div>
-            <div class="contact-info">
-                <div class="contact-item"><i class="fas fa-phone"></i> (+84) 123 456 789</div>
-                <div class="contact-item"><i class="fas fa-envelope"></i> ngan22082020@gmail.com</div>
-                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> TP.HCM, VN</div>
-                <div class="contact-item"><i class="fab fa-github"></i> github.com/LuuNguyenAiNgan</div>
-            </div>
+<button class="btn-download no-print" onclick="downloadThisCV()">Tải xuống PDF</button>
 
-            <div class="section-title-small">KỸ NĂNG CỐT LÕI</div>
-            <ul class="skill-list">
-                <li>Flutter / Dart</li>
-                <li>JavaScript / ReactJS</li>
-                <li>NodeJS / Express</li>
-                <li>Firebase & Git</li>
-                <li>Figma UI/UX</li>
-            </ul>
+<div class="row">
+    <img src="img/avatar.png" class="avatar" alt="Avatar">
 
-            <div class="section-title-small">HỌC VẤN</div>
-            <div style="text-align: left; margin-bottom: 15px;">
-                <strong style="color: #00f2ff; font-size: 0.95rem;">Đại học HUTECH</strong><br>
-                <span style="font-size: 0.85rem; color: #b6c2e2;">2022 - Hiện tại</span><br>
-                <span style="font-size: 0.9rem; font-weight: 500;">Kỹ thuật phần mềm</span><br>
-            </div>
+    <div>
+        <h1>Lưu Nguyễn Ái Ngân</h1>
+        <div class="title-job">Tester Intern</div>
 
-            <div class="section-title-small">NGÔN NGỮ</div>
-            <ul class="skill-list">
-                <li>Tiếng Anh (B1 - VSTEP)</li>
-            </ul>
-        </div>
-
-        <div class="right-col">
-            <div class="name-header">
-                <h1>LƯU NGUYỄN ÁI NGÂN</h1>
-                <h3>Kỹ Sư Phần Mềm</h3>
-            </div>
-
-            <p class="summary">
-                Sinh viên Kỹ thuật phần mềm với tinh thần trách nhiệm cao và tư duy giải quyết vấn đề sáng tạo. Tôi luôn tìm kiếm môi trường làm việc năng động để phát triển chuyên sâu kỹ năng Lập trình Di động (Flutter) và Web. Mục tiêu của tôi là tạo ra các giải pháp phần mềm chất lượng cao, mang lại giá trị thực tế.
-            </p>
-
-            <div class="section-title">DỰ ÁN TIÊU BIỂU</div>
-
-            <div class="job-item">
-                <div class="job-header">
-                    <span>TotalEnglish App</span>
-                    <span>Lập trình viên Mobile</span>
-                </div>
-                <div class="job-sub">Công nghệ: Flutter, Firebase, Vosk</div>
-                <ul class="job-desc">
-                    <li>Phát triển ứng dụng học tiếng Anh đa nền tảng cho học sinh tiểu học (Lớp 1-5).</li>
-                    <li>Xây dựng UI/UX tương tác, tích hợp VOSK để hỗ trợ luyện phát âm chuẩn offline.</li>
-                    <li>Quản lý xác thực người dùng, đồng bộ dữ liệu thời gian thực bằng Cloud Firestore.</li>
-                    <li>Tối ưu hiệu suất dùng lazy loading và kiến trúc Clean Architecture.</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <div class="job-header">
-                    <span>NOVAShop</span>
-                    <span>Lập trình viên Frontend</span>
-                </div>
-                <div class="job-sub">Công nghệ: HTML, CSS, JavaScript</div>
-                <ul class="job-desc">
-                    <li>Xây dựng giao diện thương mại điện tử responsive, tối ưu trải nghiệm mua sắm.</li>
-                    <li>Sử dụng async/await để tải dữ liệu sản phẩm mượt mà, không chặn luồng UI.</li>
-                    <li>Phát triển tính năng giỏ hàng, quản lý đơn hàng bằng LocalStorage và JS thuần.</li>
-                </ul>
-            </div>
-
-            <div class="job-item">
-                <div class="job-header">
-                    <span>Highlands Coffee</span>
-                    <span>Desktop App Developer</span>
-                </div>
-                <div class="job-sub">Công nghệ: C#, .NET, SQL Server, Entity Framework</div>
-                <ul class="job-desc">
-                    <li>Phát triển phần mềm quản lý quán cà phê toàn diện trên Windows.</li>
-                    <li>Quản lý sơ đồ bàn (Trống/Có người), gọi món, chuyển bàn và thanh toán tự động.</li>
-                    <li>Tính năng báo cáo doanh thu chi tiết, quản lý kho, thực đơn và nhân viên.</li>
-                </ul>
-            </div>
-
-            <div class="section-title">CHỨNG CHỈ</div>
-            <div class="job-item">
-                <ul class="job-desc cert-grid" style="padding-left: 0; list-style: none;">
-                    <li><strong>• Tiếng Anh (B1)</strong></li>
-                    <li><strong>• JavaScript Essentials</strong></li>
-                    <li><strong>• Networking Basics</strong></li>
-                    <li><strong>• Kỹ năng giao tiếp</strong></li>
-                </ul>
-            </div>
+        <div class="info">
+            <strong>Ngày sinh:</strong> 11/04/2004<br>
+            <strong>Giới tính:</strong> Nữ<br>
+            <strong>Số điện thoại:</strong> 0949484385<br>
+            <strong>Email:</strong> <a href="mailto:ngan22082020@gmail.com">ngan22082020@gmail.com</a><br>
+            <strong>Github:</strong> <a href="https://github.com/LuuNguyenAiNgan" target="_blank">github.com/LuuNguyenAiNgan</a><br>
+            <strong>Địa chỉ:</strong> Phường Đông Hòa, Thành Phố Hồ Chí Minh
         </div>
     </div>
+</div>
 
+<h2>MỤC TIÊU NGHỀ NGHIỆP</h2>
+<p>
+Sinh viên Công nghệ thông tin định hướng trở thành Tester. Có kiến thức cơ bản về kiểm thử phần mềm và đã thực hành viết test case, kiểm thử chức năng trong các dự án cá nhân. Là người cẩn thận, tỉ mỉ và có tinh thần học hỏi, đang từng bước tìm hiểu về chất lượng sản phẩm và trải nghiệm người dùng. Mong muốn được tham gia thực tập để tích lũy kinh nghiệm thực tế, đồng thời phát triển kỹ năng chuyên môn trong lĩnh vực QA/Tester và hướng đến trở thành một Tester chuyên nghiệp trong tương lai.
+</p>
+
+<h2>HỌC VẤN</h2>
+<p>
+<strong>2022 - Hiện tại</strong> | <strong>Trường Đại học Công nghệ TP.HCM</strong><br>
+Chuyên ngành: Công nghệ thông tin
+</p>
+<ul>
+    <li><strong>Xếp loại:</strong> 3.03/4.0</li>
+    <li><strong>Môn học liên quan:</strong> Kiểm thử và đảm bảo chất lượng phần mềm, công cụ và môi trường phát triển phần mềm.</li>
+</ul>
+
+<h2>DỰ ÁN</h2>
+
+<div class="section">
+    <div class="project-title"><strong>WEBSITE BÁN SÁCH TRỰC TUYẾN BOOKTOTAL</strong></div>
+    <div class="project-date">(01/2026 – Hiện tại)</div>
+    <ul>
+        <li>Phân tích yêu cầu hệ thống dựa trên tài liệu nghiệp vụ, xác định các chức năng cần kiểm thử.</li>
+        <li>Xây dựng Test Case cho các chức năng chính: Đăng ký/Đăng nhập, giỏ hàng, thanh toán, quản lý sản phẩm.</li>
+        <li>Áp dụng một số kỹ thuật kiểm thử hộp đen (Black-box testing), hộp trắng (White-box testing).</li>
+        <li>Thực hiện kiểm thử chức năng (Functional Testing) và kiểm thử giao diện (UI Testing) trên các trình duyệt phổ biến (Chrome, Safari).</li>
+        <li>Ghi nhận lỗi (bug), mô tả chi tiết và theo dõi quá trình xử lý lỗi.</li>
+        <li>Phối hợp kiểm tra lại sau khi lỗi được sửa (Retest) và xác minh kết quả.</li>
+        <li>Thực hành kiểm tra dữ liệu cơ bản bằng SQL để đối chiếu kết quả hệ thống.</li>
+    </ul>
+    <div class="tools">
+        <strong>Công cụ sử dụng:</strong> Microsoft Excel (Test Case), Jira (Bug Tracking), MySQL, Postman (cơ bản).
+    </div>
+</div>
+
+<div class="section" style="margin-top: 30px;">
+    <div class="project-title"><strong>ỨNG DỤNG HỌC TIẾNG ANH TOTALENGLISH (TotalEnglish Mobile App)</strong></div>
+    <ul>
+        <li>Thực hiện kiểm thử thủ công (Manual Testing) trực tiếp trên Android/iOS để đảm bảo các luồng chức năng hoạt động đúng.</li>
+        <li>Kiểm tra giao diện và trải nghiệm người dùng (UI/UX) để ứng dụng thân thiện và dễ sử dụng.</li>
+        <li>Kiểm thử các luồng chính: Đăng nhập, Học từ vựng, Luyện nghe, Luyện nói, Ôn tập bài học, Quản lý dữ liệu người dùng.</li>
+    </ul>
+</div>
+
+<h2>CHỨNG CHỈ</h2>
+<div class="section">
+    <div class="cert-item"><div class="cert-year">2025</div><div>Chứng chỉ CEF B1</div></div>
+    <div class="cert-item"><div class="cert-year">2025</div><div>Chứng chỉ kỹ năng giao tiếp và làm việc nhóm</div></div>
+    <div class="cert-item"><div class="cert-year">2025</div><div>JavaScript Essentials</div></div>
+    <div class="cert-item"><div class="cert-year">2025</div><div>Networking Basics</div></div>
+</div>
+
+<h2>KỸ NĂNG</h2>
+<ul>
+    <li>Hiểu quy trình kiểm thử phần mềm (Agile, Scrum)</li>
+    <li>Sử dụng công cụ quản lý lỗi Jira cơ bản</li>
+    <li>Kiểm thử thủ công (Manual Testing)</li>
+    <li>Kiến thức về cơ sở dữ liệu và SQL cơ bản</li>
+    <li>Biết một số ngôn ngữ lập trình cơ bản như PHP, Java</li>
+</ul>
+
+<script>
+    function downloadThisCV() {
+        const opt = {
+            margin:       10,
+            filename:     'CV_LuuNguyenAiNgan.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        const btn = document.querySelector('.btn-download');
+        btn.style.display = 'none';
+
+        html2pdf().set(opt).from(document.body).save().then(() => {
+            btn.style.display = 'inline-block';
+        });
+    }
+</script>
 </body>
 </html>
