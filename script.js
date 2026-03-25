@@ -35,7 +35,7 @@ function openProject(type) {
                     <div class="modal-gallery">
                         <img src="img/Testcase.png" alt="Test Case" onclick="openImageViewer(this.src)">
                         <img src="img/Jira.png" alt="Jira" onclick="openImageViewer(this.src)">
-                        <img src="img/Vungtuongduong.png" alt="Vùng tương đương" onclick="openImageViewer(this.src)">
+                        <img src="img/vungtuongduong.png" alt="Vùng tương đương" onclick="openImageViewer(this.src)">
                         <img src="img/bangquyetdinh.png" alt="Bảng quyết định" onclick="openImageViewer(this.src)">
                     </div>
                 </div>
@@ -46,7 +46,7 @@ function openProject(type) {
     if (type === "english") {
         modalBody.innerHTML = `
             <div class="modal-project-content">
-                <img src="img/TotalEnglish.png" alt="TotalEnglish App" class="modal-img" onclick="openImageViewer(this.src)">
+                <img src="img/totalenglish.png" alt="TotalEnglish App" class="modal-img" onclick="openImageViewer(this.src)">
                 <div class="modal-text">
                     <h2><i class="fa-solid fa-language"></i> TotalEnglish App</h2>
                     <p class="modal-desc">Ứng dụng học tiếng Anh trên thiết bị di động</p>
